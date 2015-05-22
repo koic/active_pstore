@@ -14,8 +14,6 @@ module ActivePStore
       end
 
       def destroy_all
-        @@db = PStore.new(CONFIG_PATH)
-
         @@db.transaction do
           @@db[self.key] = []
         end
