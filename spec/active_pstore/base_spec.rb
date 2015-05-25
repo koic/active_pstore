@@ -10,9 +10,9 @@ describe ActivePStore::Base do
     attr_reader :name
   end
 
-  let(:key)        { Guitarist.key }
-  let(:name)       { 'Randy Rhoads' }
-  let(:guitarist)  { Guitarist.new(name) }
+  let(:key)          { Guitarist.key }
+  let(:randy_rhoads) { Guitarist.new('Randy Rhoads') }
+  let(:zakk_wylde)   { Guitarist.new('Zakk Wylde') }
 
   describe '.all' do
     before do
@@ -23,12 +23,12 @@ describe ActivePStore::Base do
 
     context 'exists data' do
       before do
-        guitarist.save
+        randy_rhoads.save
       end
 
       it { expect(subject).to be_an(Array) }
       it { expect(subject.first).to be_an(Guitarist) }
-      it { expect(subject.first.name).to eq(name) }
+      it { expect(subject.first.name).to eq('Randy Rhoads') }
     end
 
     context 'empty data' do
@@ -45,8 +45,8 @@ describe ActivePStore::Base do
 
     context 'exists data' do
       before do
-        guitarist.save
-        guitarist.save
+        randy_rhoads.save
+        zakk_wylde.save
       end
 
       it { expect(subject).to eq(2) }
@@ -59,7 +59,7 @@ describe ActivePStore::Base do
 
   describe '.destroy_all' do
     before do
-      guitarist.save
+      randy_rhoads.save
 
       Guitarist.destroy_all
     end
