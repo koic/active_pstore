@@ -19,6 +19,12 @@ module ActivePStore
         end
       end
 
+      def count
+        @@db.transaction do
+          @@db[self.key].count
+        end
+      end
+
       def key
         self.class.to_s
       end

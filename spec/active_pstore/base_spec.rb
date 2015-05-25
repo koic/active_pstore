@@ -36,6 +36,27 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '.count' do
+    before do
+      Guitarist.destroy_all
+    end
+
+    subject { Guitarist.count }
+
+    context 'exists data' do
+      before do
+        guitarist.save
+        guitarist.save
+      end
+
+      it { expect(subject).to eq(2) }
+    end
+
+    context 'empty data' do
+      it { expect(subject).to be_zero }
+    end
+  end
+
   describe '.destroy_all' do
     before do
       guitarist.save
