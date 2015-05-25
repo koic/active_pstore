@@ -25,6 +25,22 @@ module ActivePStore
         end
       end
 
+      def where(conditions = {})
+        return self.all if conditions.empty?
+
+        ret = []
+
+        @@db.transaction do
+          conditions.each {|key, value|
+            ret = @@db[self.key].select {|obj|
+              obj.__send__(key) == value
+            }
+          }
+        end
+
+        ret
+      end
+
       def destroy_all
         @@db.transaction do
           @@db[self.key] = []
