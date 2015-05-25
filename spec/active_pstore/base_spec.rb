@@ -36,6 +36,28 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '.last' do
+    before do
+      Guitarist.destroy_all
+    end
+
+    subject { Guitarist.last }
+
+    context 'exists data' do
+      before do
+        randy_rhoads.save
+        zakk_wylde.save
+      end
+
+      it { expect(subject).to be_an(Guitarist) }
+      it { expect(subject.name).to eq('Zakk Wylde') }
+    end
+
+    context 'empty data' do
+      it { expect(subject).to be_nil }
+    end
+  end
+
   describe '.count' do
     before do
       Guitarist.destroy_all
