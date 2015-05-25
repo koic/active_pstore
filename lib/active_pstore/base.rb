@@ -13,6 +13,12 @@ module ActivePStore
         end
       end
 
+      def first
+        @@db.transaction do
+          @@db[self.key].first
+        end
+      end
+
       def destroy_all
         @@db.transaction do
           @@db[self.key] = []

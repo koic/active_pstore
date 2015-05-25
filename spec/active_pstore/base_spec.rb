@@ -14,25 +14,25 @@ describe ActivePStore::Base do
   let(:randy_rhoads) { Guitarist.new('Randy Rhoads') }
   let(:zakk_wylde)   { Guitarist.new('Zakk Wylde') }
 
-  describe '.all' do
+  describe '.first' do
     before do
       Guitarist.destroy_all
     end
 
-    subject { Guitarist.all }
+    subject { Guitarist.first }
 
     context 'exists data' do
       before do
         randy_rhoads.save
+        zakk_wylde.save
       end
 
-      it { expect(subject).to be_an(Array) }
-      it { expect(subject.first).to be_an(Guitarist) }
-      it { expect(subject.first.name).to eq('Randy Rhoads') }
+      it { expect(subject).to be_an(Guitarist) }
+      it { expect(subject.name).to eq('Randy Rhoads') }
     end
 
     context 'empty data' do
-      it { expect(subject).to be_empty }
+      it { expect(subject).to be_nil }
     end
   end
 
