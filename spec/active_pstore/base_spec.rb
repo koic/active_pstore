@@ -12,6 +12,7 @@ describe ActivePStore::Base do
 
   let(:key)           { Guitarist.key }
   let(:randy_rhoads)  { Guitarist.new('Randy Rhoads') }
+  let(:michael_amott) { Guitarist.new('Michael Amott') }
   let(:zakk_wylde)    { Guitarist.new('Zakk Wylde') }
 
   describe '.first' do
@@ -24,6 +25,7 @@ describe ActivePStore::Base do
     context 'exists data' do
       before do
         randy_rhoads.save
+        michael_amott.save
         zakk_wylde.save
       end
 
@@ -46,6 +48,7 @@ describe ActivePStore::Base do
     context 'exists data' do
       before do
         randy_rhoads.save
+        michael_amott.save
         zakk_wylde.save
       end
 
@@ -68,10 +71,11 @@ describe ActivePStore::Base do
     context 'exists data' do
       before do
         randy_rhoads.save
+        michael_amott.save
         zakk_wylde.save
       end
 
-      it { expect(subject).to eq(2) }
+      it { expect(subject).to eq(3) }
     end
 
     context 'empty data' do
