@@ -10,9 +10,9 @@ describe ActivePStore::Base do
     attr_reader :name
   end
 
-  let(:key)          { Guitarist.key }
-  let(:randy_rhoads) { Guitarist.new('Randy Rhoads') }
-  let(:zakk_wylde)   { Guitarist.new('Zakk Wylde') }
+  let(:key)           { Guitarist.key }
+  let(:randy_rhoads)  { Guitarist.new('Randy Rhoads') }
+  let(:zakk_wylde)    { Guitarist.new('Zakk Wylde') }
 
   describe '.first' do
     before do
