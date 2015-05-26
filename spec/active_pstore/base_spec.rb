@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'active_pstore'
 
 describe ActivePStore::Base do
-  class Guitarist < ActivePStore::Base
+  class Artist < ActivePStore::Base
     def initialize(name, associated_act)
       @name = name
       @associated_act = associated_act
@@ -11,17 +11,17 @@ describe ActivePStore::Base do
     attr_reader :name, :associated_act
   end
 
-  let(:key)           { Guitarist.key }
-  let(:randy_rhoads)  { Guitarist.new('Randy Rhoads', 'Ozzy Osbourne') }
-  let(:michael_amott) { Guitarist.new('Michael Amott', 'Arch Enemy') }
-  let(:zakk_wylde)    { Guitarist.new('Zakk Wylde', 'Ozzy Osbourne') }
+  let(:key)           { Artist.key }
+  let(:randy_rhoads)  { Artist.new('Randy Rhoads', 'Ozzy Osbourne') }
+  let(:michael_amott) { Artist.new('Michael Amott', 'Arch Enemy') }
+  let(:zakk_wylde)    { Artist.new('Zakk Wylde', 'Ozzy Osbourne') }
 
   describe '.first' do
     before do
-      Guitarist.destroy_all
+      Artist.destroy_all
     end
 
-    subject { Guitarist.first }
+    subject { Artist.first }
 
     context 'exists data' do
       before do
@@ -30,7 +30,7 @@ describe ActivePStore::Base do
         zakk_wylde.save
       end
 
-      it { expect(subject).to be_an(Guitarist) }
+      it { expect(subject).to be_an(Artist) }
       it { expect(subject.name).to eq('Randy Rhoads') }
     end
 
@@ -41,10 +41,10 @@ describe ActivePStore::Base do
 
   describe '.last' do
     before do
-      Guitarist.destroy_all
+      Artist.destroy_all
     end
 
-    subject { Guitarist.last }
+    subject { Artist.last }
 
     context 'exists data' do
       before do
@@ -53,7 +53,7 @@ describe ActivePStore::Base do
         zakk_wylde.save
       end
 
-      it { expect(subject).to be_an(Guitarist) }
+      it { expect(subject).to be_an(Artist) }
       it { expect(subject.name).to eq('Zakk Wylde') }
     end
 
@@ -64,10 +64,10 @@ describe ActivePStore::Base do
 
   describe '.where' do
     before do
-      Guitarist.destroy_all
+      Artist.destroy_all
     end
 
-    subject { Guitarist.where(associated_act: 'Ozzy Osbourne') }
+    subject { Artist.where(associated_act: 'Ozzy Osbourne') }
 
     context 'exists data' do
       before do
@@ -89,10 +89,10 @@ describe ActivePStore::Base do
 
   describe '.count' do
     before do
-      Guitarist.destroy_all
+      Artist.destroy_all
     end
 
-    subject { Guitarist.count }
+    subject { Artist.count }
 
     context 'exists data' do
       before do
@@ -113,10 +113,10 @@ describe ActivePStore::Base do
     before do
       randy_rhoads.save
 
-      Guitarist.destroy_all
+      Artist.destroy_all
     end
 
-    subject { Guitarist.all }
+    subject { Artist.all }
 
     it { expect(subject).to be_an(Array) }
     it { expect(subject).to be_empty }
