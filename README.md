@@ -19,6 +19,8 @@ This library has ActiveRecord like interface. Use pstore to store data.
 class definition and instantiate
 
 ```
+require 'active_pstore'
+
 class Artist < ActivePStore::Base
   def initialize(name)
     @name = name

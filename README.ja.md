@@ -20,6 +20,8 @@ ActiveRecordに似たインターフェイスを持ったライブラリです�
 クラス定義とインスタンスの生成
 
 ```
+require 'active_pstore'
+
 class Artist < ActivePStore::Base
   def initialize(name)
     @name = name
