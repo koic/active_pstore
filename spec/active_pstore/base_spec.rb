@@ -20,6 +20,8 @@ describe ActivePStore::Base do
   let(:zakk_wylde)    { Artist.new('Zakk Wylde', 'Ozzy Osbourne', 'guitar', Date.new(1948, 12, 3)) }
 
   before do
+    Artist.establish_connection(database: '/tmp/active_pstore_test')
+
     Artist.destroy_all
 
     randy_rhoads.save

@@ -3,13 +3,13 @@ require 'securerandom'
 
 module ActivePStore
   class Base
-    CONFIG_PATH = '/tmp/foo'
-
-    @@db = PStore.new(CONFIG_PATH)
-
     attr_reader :id
 
     class << self
+      def establish_connection(options = {})
+        @@db = PStore.new(options[:database] || options['database'])
+      end
+
       def find(id)
         id = id.is_a?(ActivePStore::Base) ? id.id : id
 
