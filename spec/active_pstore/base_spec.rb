@@ -67,7 +67,7 @@ describe ActivePStore::Base do
       Artist.destroy_all
     end
 
-    subject { Artist.where(associated_act: 'Ozzy Osbourne') }
+    subject { Artist.where(conditions) }
 
     context 'exists data' do
       before do
@@ -76,13 +76,19 @@ describe ActivePStore::Base do
         zakk_wylde.save
       end
 
-      it { expect(subject).to be_an(Array) }
-      it { expect(subject.size).to eq(2) }
-      it { expect(subject[0].name).to eq('Randy Rhoads') }
-      it { expect(subject[1].name).to eq('Zakk Wylde') }
+      context 'have 1 condition' do
+        let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
+
+        it { expect(subject).to be_an(Array) }
+        it { expect(subject.size).to eq(2) }
+        it { expect(subject[0].name).to eq('Randy Rhoads') }
+        it { expect(subject[1].name).to eq('Zakk Wylde') }
+      end
     end
 
-    context 'empty data' do
+    context 'not found' do
+      let(:conditions) { {} }
+
       it { expect(subject).to be_empty }
     end
   end
