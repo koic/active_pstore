@@ -9,7 +9,7 @@ This library has ActiveRecord like interface. Use pstore to store data.
 * Oh so many problems…
 * Safety...
 * Transaction
-* Robustness
+* Performance
 * Data Migration
 * Not solving the root cause...
 * Just to name a few
@@ -47,6 +47,8 @@ between
 ```
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
+
+and spec codes...
 
 ## REQUIREMENTS
 
