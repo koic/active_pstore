@@ -65,21 +65,29 @@ describe ActivePStore::Base do
   describe '.find' do
     subject { Artist.find(id) }
 
-    context 'exists data' do
-      let(:id) { randy_rhoads.id }
-
-      it { is_expected.to be_an(Artist) }
-      it { expect(subject.name).to eq('Randy Rhoads') }
-    end
-
-    context 'not found' do
-      let(:id) { '9' * 32 }
-
-      before do
-        Artist.destroy_all
+    shared_examples_for 'fishing with a pole' do
+      context 'exists data' do
+        it { is_expected.to be_an(Artist) }
+        it { expect(subject.name).to eq('Randy Rhoads') }
       end
 
-      it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with 'id'=#{id}") }
+      context 'not found' do
+        let(:id) { '9' * 32 }
+
+        before do
+          Artist.destroy_all
+        end
+
+        it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with 'id'=#{id}") }
+      end
+    end
+
+    it_behaves_like 'fishing with a pole' do
+      let(:id) { randy_rhoads.id }
+    end
+
+    it_behaves_like 'fishing with a pole' do
+      let(:id) { randy_rhoads }
     end
   end
 

@@ -11,6 +11,8 @@ module ActivePStore
 
     class << self
       def find(id)
+        id = id.is_a?(ActivePStore::Base) ? id.id : id
+
         all.find {|obj| obj.id == id } || (raise ActivePStore::RecordNotFound.new("Couldn't find #{self} with 'id'=#{id}"))
       end
 
