@@ -23,15 +23,11 @@ module ActivePStore
       end
 
       def first
-        @@db.transaction do
-          @@db[self.key].first
-        end
+        all.first
       end
 
       def last
-        @@db.transaction do
-          @@db[self.key].last
-        end
+        all.last
       end
 
       def find_by(conditions = {})
@@ -39,19 +35,17 @@ module ActivePStore
       end
 
       def where(conditions = {})
-        ret = self.all
+        ret = all
 
         return ret if conditions.empty?
 
-        @@db.transaction do
-          conditions.each {|key, value|
-            ret = ret.select {|obj|
-              if value.is_a? Range
-                value.include?(obj.__send__(key))
-              else
-                obj.__send__(key) == value
-              end
-            }
+        conditions.each do |key, value|
+          ret = ret.select {|obj|
+            if value.is_a? Range
+              value.include?(obj.__send__(key))
+            else
+              obj.__send__(key) == value
+            end
           }
         end
 
@@ -65,9 +59,7 @@ module ActivePStore
       end
 
       def count
-        @@db.transaction do
-          @@db[self.key].count
-        end
+        all.count
       end
 
       def key
