@@ -132,4 +132,35 @@ describe ActivePStore::Base do
     it { is_expected.to be_an(Array) }
     it { is_expected.to be_empty }
   end
+
+  describe 'default attribute' do
+    describe 'id' do
+      let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+
+      subject { edward_van_halen.id }
+
+      context 'before save' do
+        it { is_expected.to be_nil }
+      end
+
+      context 'after save' do
+        before do
+          edward_van_halen.save
+        end
+
+        it { is_expected.to be_a(String) }
+        it { expect(subject.size).to eq(32) }
+      end
+
+      context 'save for the second time' do
+        let!(:id) { randy_rhoads.id }
+
+        before do
+          randy_rhoads.save
+        end
+
+        it { expect(randy_rhoads.id).to eq(id) }
+      end
+    end
+  end
 end

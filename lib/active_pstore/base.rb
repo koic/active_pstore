@@ -1,10 +1,13 @@
 require 'pstore'
+require 'securerandom'
 
 module ActivePStore
   class Base
     CONFIG_PATH = '/tmp/foo'
 
     @@db = PStore.new(CONFIG_PATH)
+
+    attr_reader :id
 
     class << self
       def all
@@ -63,6 +66,8 @@ module ActivePStore
     end
 
     def save
+      @id ||= SecureRandom.hex
+
       @@db.transaction do
         if @@db[self.class.key]
           @@db[self.class.key] << self
