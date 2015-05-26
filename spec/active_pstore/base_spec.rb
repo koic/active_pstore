@@ -93,6 +93,43 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '.find_by' do
+    subject { Artist.find_by(conditions) }
+
+    context 'exists data' do
+      context 'have 1 condition' do
+        let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
+
+        it { is_expected.to be_an(Artist) }
+        it { expect(subject.name).to eq('Randy Rhoads') }
+      end
+
+      context 'have 2 conditions' do
+        let(:conditions) { {associated_act: 'Ozzy Osbourne', instrument: 'guitar'} }
+
+        it { is_expected.to be_an(Artist) }
+        it { expect(subject.name).to eq('Randy Rhoads') }
+      end
+
+      context 'date between' do
+        let(:conditions) { {birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6)} }
+
+        it { is_expected.to be_an(Artist) }
+        it { expect(subject.name).to eq('Randy Rhoads') }
+      end
+    end
+
+    context 'not found' do
+      let(:conditions) { {} }
+
+      before do
+        Artist.destroy_all
+      end
+
+      it { is_expected.to be_nil }
+    end
+  end
+
   describe '.where' do
     subject { Artist.where(conditions) }
 

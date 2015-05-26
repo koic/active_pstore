@@ -34,6 +34,10 @@ module ActivePStore
         end
       end
 
+      def find_by(conditions = {})
+        where.first
+      end
+
       def where(conditions = {})
         ret = self.all
 
