@@ -10,6 +10,10 @@ module ActivePStore
     attr_reader :id
 
     class << self
+      def find(id)
+        all.find {|obj| obj.id == id } || (raise ActivePStore::RecordNotFound.new("Couldn't find #{self} with 'id'=#{id}"))
+      end
+
       def all
         @@db.transaction do
           @@db[self.key]
