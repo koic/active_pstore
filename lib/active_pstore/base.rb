@@ -26,13 +26,13 @@ module ActivePStore
       end
 
       def where(conditions = {})
-        return self.all if conditions.empty?
+        ret = self.all
 
-        ret = []
+        return ret if conditions.empty?
 
         @@db.transaction do
           conditions.each {|key, value|
-            ret = @@db[self.key].select {|obj|
+            ret = ret.select {|obj|
               obj.__send__(key) == value
             }
           }
