@@ -31,7 +31,7 @@ describe ActivePStore::Base do
     subject { Artist.first }
 
     context 'exists data' do
-      it { expect(subject).to be_an(Artist) }
+      it { is_expected.to be_an(Artist) }
       it { expect(subject.name).to eq('Randy Rhoads') }
     end
 
@@ -40,7 +40,7 @@ describe ActivePStore::Base do
         Artist.destroy_all
       end
 
-      it { expect(subject).to be_nil }
+      it { is_expected.to be_nil }
     end
   end
 
@@ -48,7 +48,7 @@ describe ActivePStore::Base do
     subject { Artist.last }
 
     context 'exists data' do
-      it { expect(subject).to be_an(Artist) }
+      it { is_expected.to be_an(Artist) }
       it { expect(subject.name).to eq('Zakk Wylde') }
     end
 
@@ -57,7 +57,7 @@ describe ActivePStore::Base do
         Artist.destroy_all
       end
 
-      it { expect(subject).to be_nil }
+      it { is_expected.to be_nil }
     end
   end
 
@@ -68,7 +68,7 @@ describe ActivePStore::Base do
       context 'have 1 condition' do
         let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
 
-        it { expect(subject).to be_an(Array) }
+        it { is_expected.to be_an(Array) }
         it { expect(subject.size).to eq(3) }
         it { expect(subject[0].name).to eq('Randy Rhoads') }
         it { expect(subject[1].name).to eq('Don Airey') }
@@ -78,7 +78,7 @@ describe ActivePStore::Base do
       context 'have 2 conditions' do
         let(:conditions) { {associated_act: 'Ozzy Osbourne', instrument: 'guitar'} }
 
-        it { expect(subject).to be_an(Array) }
+        it { is_expected.to be_an(Array) }
         it { expect(subject.size).to eq(2) }
         it { expect(subject[0].name).to eq('Randy Rhoads') }
         it { expect(subject[1].name).to eq('Zakk Wylde') }
@@ -92,7 +92,7 @@ describe ActivePStore::Base do
         Artist.destroy_all
       end
 
-      it { expect(subject).to be_empty }
+      it { is_expected.to be_empty }
     end
   end
 
@@ -100,7 +100,7 @@ describe ActivePStore::Base do
     subject { Artist.count }
 
     context 'exists data' do
-      it { expect(subject).to eq(4) }
+      it { is_expected.to eq(4) }
     end
 
     context 'empty data' do
@@ -108,7 +108,7 @@ describe ActivePStore::Base do
         Artist.destroy_all
       end
 
-      it { expect(subject).to be_zero }
+      it { is_expected.to be_zero }
     end
   end
 
@@ -119,7 +119,7 @@ describe ActivePStore::Base do
 
     subject { Artist.all }
 
-    it { expect(subject).to be_an(Array) }
-    it { expect(subject).to be_empty }
+    it { is_expected.to be_an(Array) }
+    it { is_expected.to be_empty }
   end
 end
