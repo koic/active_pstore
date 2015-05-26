@@ -16,7 +16,7 @@ This library has ActiveRecord like interface. Use pstore to store data.
 
 ## SYNOPSIS
 
-save
+class definition and instantiate
 
 ```
 class Artist < ActivePStore::Base
@@ -28,7 +28,17 @@ class Artist < ActivePStore::Base
 end
 
 randy_rhoads = Artist.new('Randy Rhoads')
+```
 
+specify data store path
+
+```
+Artist.establish_connection(database: '/tmp/active_pstore_test')
+```
+
+save
+
+```
 randy_rhoads.save
 ```
 

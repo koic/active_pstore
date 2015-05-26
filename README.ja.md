@@ -17,7 +17,7 @@ ActiveRecordに似たインターフェイスを持ったライブラリです�
 
 ## SYNOPSIS
 
-データの保存
+クラス定義とインスタンスの生成
 
 ```
 class Artist < ActivePStore::Base
@@ -29,7 +29,17 @@ class Artist < ActivePStore::Base
 end
 
 randy_rhoads = Artist.new('Randy Rhoads')
+```
 
+データの保存先のファイルパス指定
+
+```
+Artist.establish_connection(database: '/tmp/active_pstore_test')
+```
+
+データの保存
+
+```
 randy_rhoads.save
 ```
 
