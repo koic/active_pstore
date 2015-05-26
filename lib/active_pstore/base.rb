@@ -33,7 +33,11 @@ module ActivePStore
         @@db.transaction do
           conditions.each {|key, value|
             ret = ret.select {|obj|
-              obj.__send__(key) == value
+              if value.is_a? Range
+                value.include?(obj.__send__(key))
+              else
+                obj.__send__(key) == value
+              end
             }
           }
         end
