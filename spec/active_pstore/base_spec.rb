@@ -10,7 +10,7 @@ describe ActivePStore::Base do
       @birth_date = birth_date
     end
 
-    attr_reader :name, :associated_act, :instrument, :birth_date
+    attr_accessor :name, :associated_act, :instrument, :birth_date
   end
 
   let(:key)           { Artist.key }
@@ -229,6 +229,18 @@ describe ActivePStore::Base do
       end
 
       specify { expect(Artist.count).to eq(1) }
+    end
+
+    context 'update' do
+      before do
+        edward_van_halen.save
+
+        edward_van_halen.name = 'Eddie Van Halen'
+
+        edward_van_halen.save
+      end
+
+      specify { expect(Artist.find(edward_van_halen).name).to eq('Eddie Van Halen') }
     end
   end
 

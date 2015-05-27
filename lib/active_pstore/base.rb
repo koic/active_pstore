@@ -72,15 +72,17 @@ module ActivePStore
     end
 
     def save
-      unless @id
-        @id = SecureRandom.hex
+      @@db.transaction do
+        if new_record?
+          @id = SecureRandom.hex
 
-        @@db.transaction do
           if @@db[self.class.key]
             @@db[self.class.key] << self
           else
             @@db[self.class.key] = [self]
           end
+        else
+          @@db[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
         end
       end
 
