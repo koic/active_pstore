@@ -67,6 +67,10 @@ module ActivePStore
       end
     end
 
+    def new_record?
+      @id.nil?
+    end
+
     def save
       unless @id
         @id = SecureRandom.hex

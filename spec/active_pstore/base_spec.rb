@@ -232,6 +232,24 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '#new_record?' do
+    let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+
+    subject { edward_van_halen.new_record? }
+
+    context 'new record' do
+      it { is_expected.to be true }
+    end
+
+    context 'exists record' do
+      before do
+        edward_van_halen.save
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   describe 'default attribute' do
     describe 'id' do
       let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
