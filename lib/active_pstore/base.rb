@@ -68,15 +68,19 @@ module ActivePStore
     end
 
     def save
-      @id ||= SecureRandom.hex
+      unless @id
+        @id = SecureRandom.hex
 
-      @@db.transaction do
-        if @@db[self.class.key]
-          @@db[self.class.key] << self
-        else
-          @@db[self.class.key] = [self]
+        @@db.transaction do
+          if @@db[self.class.key]
+            @@db[self.class.key] << self
+          else
+            @@db[self.class.key] = [self]
+          end
         end
       end
+
+      true
     end
   end
 end

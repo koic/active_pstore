@@ -201,6 +201,37 @@ describe ActivePStore::Base do
     it { is_expected.to be_empty }
   end
 
+  describe '#save' do
+    before do
+      Artist.destroy_all
+    end
+
+    let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+
+    describe 'return value' do
+      subject { edward_van_halen.save }
+
+      it { expect(subject).to be true }
+    end
+
+    context 'save for the one time' do
+      before do
+        edward_van_halen.save
+      end
+
+      specify { expect(Artist.count).to eq(1) }
+    end
+
+    context 'save for the second time' do
+      before do
+        edward_van_halen.save
+        edward_van_halen.save
+      end
+
+      specify { expect(Artist.count).to eq(1) }
+    end
+  end
+
   describe 'default attribute' do
     describe 'id' do
       let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
