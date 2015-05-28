@@ -71,6 +71,14 @@ module ActivePStore
       @id.nil?
     end
 
+    def destroy
+      @@db.transaction do
+        @@db[self.class.key].delete_if {|obj| obj.id == self.id }
+      end
+
+      self
+    end
+
     def save
       @@db.transaction do
         if new_record?

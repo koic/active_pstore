@@ -201,6 +201,21 @@ describe ActivePStore::Base do
     it { is_expected.to be_empty }
   end
 
+  describe '#destroy' do
+    describe 'return value' do
+      subject { randy_rhoads.destroy }
+
+      it { is_expected.to eq(randy_rhoads) }
+    end
+
+    context 'destroyed data' do
+      before { randy_rhoads.destroy }
+
+      it { expect { Artist.find(randy_rhoads) }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with 'id'=#{randy_rhoads.id}") }
+      specify { expect(Artist.count).to eq(3) }
+    end
+  end
+
   describe '#save' do
     before do
       Artist.destroy_all
