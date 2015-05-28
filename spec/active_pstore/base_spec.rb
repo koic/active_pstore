@@ -201,6 +201,31 @@ describe ActivePStore::Base do
     it { is_expected.to be_empty }
   end
 
+  describe '#update_attribute' do
+    describe 'return value' do
+      subject { randy_rhoads.update_attribute(:associated_act, 'The Super Band') }
+
+      it { is_expected.to be true }
+    end
+
+    shared_examples_for 'updated data' do
+      subject { randy_rhoads.update_attribute(attr_name, 'The Super Band') }
+
+      it {
+        expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
+        expect { subject }.to_not change(zakk_wylde, :associated_act).from('Ozzy Osbourne')
+      }
+    end
+
+    it_behaves_like 'updated data' do
+      let(:attr_name) { :associated_act }
+    end
+
+    it_behaves_like 'updated data' do
+      let(:attr_name) { 'associated_act' }
+    end
+  end
+
   describe '#destroy' do
     describe 'return value' do
       subject { randy_rhoads.destroy }
