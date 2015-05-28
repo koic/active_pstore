@@ -63,9 +63,11 @@ module ActivePStore
       end
 
       def destroy_all
-        @@db.transaction do
-          @@db[self.key] = []
-        end
+        all.inject(0) {|result, obj|
+          obj.destroy
+
+          result += 1
+        }
       end
 
       def count

@@ -211,14 +211,22 @@ describe ActivePStore::Base do
   end
 
   describe '.destroy_all' do
-    before do
-      Artist.destroy_all
+    describe 'return value' do
+      subject { Artist.destroy_all }
+
+      it { is_expected.to eq(4) }
     end
 
-    subject { Artist.all }
+    describe 'destroy data' do
+      before do
+        Artist.destroy_all
+      end
 
-    it { is_expected.to be_an(Array) }
-    it { is_expected.to be_empty }
+      subject { Artist.all }
+
+      it { is_expected.to be_an(Array) }
+      it { is_expected.to be_empty }
+    end
   end
 
   describe '.update_all' do
