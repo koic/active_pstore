@@ -82,11 +82,7 @@ module ActivePStore
     def update_attribute(attr_name, attr_value)
       self.__send__("#{attr_name}=", attr_value)
 
-      @@db.transaction do
-        @@db[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
-      end
-
-      true
+      save
     end
 
     def update_attributes(attrs)
@@ -94,11 +90,7 @@ module ActivePStore
         self.__send__("#{attr_name}=", attr_value)
       end
 
-      @@db.transaction do
-        @@db[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
-      end
-
-      true
+      save
     end
 
     def save
