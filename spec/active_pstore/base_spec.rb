@@ -226,6 +226,21 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '#update_attributes' do
+    subject { randy_rhoads.update_attributes(associated_act: 'The Super Band', instrument: 'vocal') }
+
+    it { is_expected.to be true }
+    it {
+      expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
+    }
+    it {
+      expect { subject }.to change(randy_rhoads, :instrument).from('guitar').to('vocal')
+    }
+    it {
+      expect { subject }.to_not change(zakk_wylde, :associated_act).from('Ozzy Osbourne')
+    }
+  end
+
   describe '#destroy' do
     describe 'return value' do
       subject { randy_rhoads.destroy }

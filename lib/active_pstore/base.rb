@@ -89,6 +89,18 @@ module ActivePStore
       true
     end
 
+    def update_attributes(attrs)
+      attrs.each do |attr_name, attr_value|
+        self.__send__("#{attr_name}=", attr_value)
+      end
+
+      @@db.transaction do
+        @@db[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
+      end
+
+      true
+    end
+
     def save
       @@db.transaction do
         if new_record?
