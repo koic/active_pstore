@@ -202,17 +202,14 @@ describe ActivePStore::Base do
   end
 
   describe '#update_attribute' do
-    describe 'return value' do
-      subject { randy_rhoads.update_attribute(:associated_act, 'The Super Band') }
+    subject { randy_rhoads.update_attribute(:associated_act, 'The Super Band') }
 
-      it { is_expected.to be true }
-    end
-
+    it { is_expected.to be true }
     shared_examples_for 'updated data' do
-      subject { randy_rhoads.update_attribute(attr_name, 'The Super Band') }
-
       it {
         expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
+      }
+      it {
         expect { subject }.to_not change(zakk_wylde, :associated_act).from('Ozzy Osbourne')
       }
     end
