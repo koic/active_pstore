@@ -93,9 +93,7 @@ describe ActivePStore::Base do
     end
   end
 
-  describe '.find_by' do
-    subject { Artist.find_by(conditions) }
-
+  shared_examples_for 'find_by series' do
     context 'exists data' do
       context 'have 1 condition' do
         let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
@@ -118,6 +116,12 @@ describe ActivePStore::Base do
         it { expect(subject.name).to eq('Randy Rhoads') }
       end
     end
+  end
+
+  describe '.find_by' do
+    subject { Artist.find_by(conditions) }
+
+    it_behaves_like 'find_by series'
 
     context 'not found' do
       let(:conditions) { {} }
@@ -127,6 +131,22 @@ describe ActivePStore::Base do
       end
 
       it { is_expected.to be_nil }
+    end
+  end
+
+  describe '.find_by!' do
+    subject { Artist.find_by!(conditions) }
+
+    it_behaves_like 'find_by series'
+
+    context 'not found' do
+      let(:conditions) { {} }
+
+      before do
+        Artist.destroy_all
+      end
+
+      it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with conditions=#{conditions}") }
     end
   end
 

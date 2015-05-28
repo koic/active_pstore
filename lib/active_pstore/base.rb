@@ -34,6 +34,10 @@ module ActivePStore
         where.first
       end
 
+      def find_by!(conditions = {})
+        find_by(conditions) || (raise ActivePStore::RecordNotFound.new("Couldn't find #{self} with conditions=#{conditions}"))
+      end
+
       def where(conditions = {})
         ret = all
 
