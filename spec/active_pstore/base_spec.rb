@@ -205,6 +205,7 @@ describe ActivePStore::Base do
     subject { randy_rhoads.update_attribute(:associated_act, 'The Super Band') }
 
     it { is_expected.to be true }
+
     shared_examples_for 'updated data' do
       it {
         expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
