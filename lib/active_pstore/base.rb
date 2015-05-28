@@ -52,6 +52,12 @@ module ActivePStore
         ret
       end
 
+      def update_all(attrs)
+        all.each {|obj|
+          obj.update_attributes(attrs)
+        }.count
+      end
+
       def destroy_all
         @@db.transaction do
           @@db[self.key] = []

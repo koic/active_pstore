@@ -201,6 +201,34 @@ describe ActivePStore::Base do
     it { is_expected.to be_empty }
   end
 
+  describe '.update_all' do
+    describe 'return value' do
+      subject { Artist.update_all(associated_act: 'The Super Band') }
+
+      it { is_expected.to eq(4) }
+    end
+
+    describe 'updated data' do
+      before { Artist.update_all(associated_act: 'The Super Band') }
+
+      specify {
+        expect(Artist.find(randy_rhoads).associated_act).to eq('The Super Band')
+      }
+
+      specify {
+        expect(Artist.find(michael_amott).associated_act).to eq('The Super Band')
+      }
+
+      specify {
+        expect(Artist.find(don_airey).associated_act).to eq('The Super Band')
+      }
+
+      specify {
+        expect(Artist.find(zakk_wylde).associated_act).to eq('The Super Band')
+      }
+    end
+  end
+
   describe '#update_attribute' do
     subject { randy_rhoads.update_attribute(:associated_act, 'The Super Band') }
 
