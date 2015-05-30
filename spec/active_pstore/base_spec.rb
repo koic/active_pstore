@@ -43,6 +43,14 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '.key' do
+    context Artist do
+      subject { Artist.key }
+
+      it { is_expected.to eq('Artist') }
+    end
+  end
+
   describe '.first' do
     subject { Artist.first }
 

@@ -18,7 +18,7 @@ module ActivePStore
 
       def all
         use_connection do |connection|
-          connection[self.key]
+          connection[self.key] || []
         end
       end
 
@@ -75,7 +75,7 @@ module ActivePStore
       end
 
       def key
-        self.class.to_s
+        self.to_s
       end
 
       def use_connection
