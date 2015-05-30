@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.name = 'active-pstore'
   s.summary = 'This library has ActiveRecord like interface. Use pstore to store data.'
   s.description = 'This library has ActiveRecord like interface. Use pstore to store data.'
-  s.date = '2015-05-27'
+  s.date = '2015-05-30'
 
   s.version = ActivePStore::VERSION
 
