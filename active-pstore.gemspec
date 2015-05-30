@@ -24,7 +24,10 @@ Gem::Specification.new do |s|
     'README.ja.md',
     'lib/active_pstore.rb',
     'lib/active_pstore/base.rb',
+    'lib/active_pstore/connection_handling.rb',
     'lib/active_pstore/errors.rb',
+    'lib/active_pstore/finder_methods.rb',
+    'lib/active_pstore/persistence.rb',
     'lib/active_pstore/version.rb',
     'active-pstore.gemspec',
     'LICENSE'
