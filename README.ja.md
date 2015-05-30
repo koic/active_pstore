@@ -34,7 +34,7 @@ randy_rhoads = Artist.new('Randy Rhoads')
 ### データの保存先のファイルパス指定
 
 ```
-Artist.establish_connection(database: '/tmp/active_pstore_test')
+Artist.establish_connection(database: '/path/to/file')
 ```
 
 ### インスタンスの保存
@@ -46,7 +46,7 @@ randy_rhoads.save
 saveメソッドの対象オブジェクトのクラス名がPStoreのキーになります。
 
 ```
-database = PStore.new('/path/to/name')
+database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 

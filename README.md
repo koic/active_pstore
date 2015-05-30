@@ -33,7 +33,7 @@ randy_rhoads = Artist.new('Randy Rhoads')
 ### specify data store path
 
 ```
-Artist.establish_connection(database: '/tmp/active_pstore_test')
+Artist.establish_connection(database: '/path/to/file')
 ```
 
 ### save
@@ -45,7 +45,7 @@ randy_rhoads.save
 database key is string of class name.
 
 ```
-database = PStore.new('/path/to/name')
+database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 
