@@ -51,13 +51,5 @@ module ActivePStore
         self.to_s
       end
     end
-
-    def destroy
-      ActivePStore::Base.use_connection do |connection|
-        connection[self.class.pstore_key].delete_if {|obj| obj.id == self.id }
-      end
-
-      self
-    end
   end
 end
