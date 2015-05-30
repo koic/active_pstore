@@ -6,7 +6,7 @@ require 'active_pstore/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name = 'active_pstore'
+  s.name = 'active-pstore'
   s.summary = 'This library has ActiveRecord like interface. Use pstore to store data.'
   s.description = 'This library has ActiveRecord like interface. Use pstore to store data.'
   s.date = '2015-05-27'
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.authors = ['Koichi ITO']
   s.email = 'koic.ito@gmail.com'
-  s.homepage = 'http://github.com/koic/active_pstore'
+  s.homepage = 'http://github.com/koic/active-pstore'
 
   s.files = [
     'README.md',
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     'lib/active_pstore/base.rb',
     'lib/active_pstore/errors.rb',
     'lib/active_pstore/version.rb',
-    'active_pstore.gemspec',
+    'active-pstore.gemspec',
     'LICENSE'
   ]
   s.require_paths = ['lib']
