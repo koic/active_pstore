@@ -85,7 +85,7 @@ Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 Add these lines to your application's Gemfile:
 
 ```
-gem 'active_pstore'
+gem 'active-pstore'
 ```
 
 And then execute:
@@ -97,7 +97,7 @@ $ bundle
 Or install it yourself as:
 
 ```
-$ gem install
+$ gem install active-pstore
 ```
 
 ## LICENCE

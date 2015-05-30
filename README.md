@@ -84,7 +84,7 @@ no requirements
 Add these lines to your application's Gemfile:
 
 ```
-gem 'active_pstore'
+gem 'active-pstore'
 ```
 
 And then execute:
@@ -96,7 +96,7 @@ $ bundle
 Or install it yourself as:
 
 ```
-$ gem install
+$ gem install active-pstore
 ```
 
 ## LICENCE
