@@ -17,8 +17,8 @@ module ActivePStore
       end
 
       def all
-        @@db.transaction do
-          @@db[self.key]
+        @@db.transaction do |pstore|
+          pstore[self.key]
         end
       end
 
@@ -84,8 +84,8 @@ module ActivePStore
     end
 
     def destroy
-      @@db.transaction do
-        @@db[self.class.key].delete_if {|obj| obj.id == self.id }
+      @@db.transaction do |pstore|
+        pstore[self.class.key].delete_if {|obj| obj.id == self.id }
       end
 
       self
@@ -106,17 +106,17 @@ module ActivePStore
     end
 
     def save
-      @@db.transaction do
+      @@db.transaction do |pstore|
         if new_record?
           @id = SecureRandom.hex
 
-          if @@db[self.class.key]
-            @@db[self.class.key] << self
+          if pstore[self.class.key]
+            pstore[self.class.key] << self
           else
-            @@db[self.class.key] = [self]
+            pstore[self.class.key] = [self]
           end
         else
-          @@db[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
+          pstore[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
         end
       end
 
