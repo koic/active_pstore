@@ -14,7 +14,6 @@ describe ActivePStore::Base do
     attr_accessor :name, :associated_act, :instrument, :birth_date
   end
 
-  let(:key)           { Artist.key }
   let(:randy_rhoads)  { Artist.new('Randy Rhoads', 'Ozzy Osbourne', 'guitar', Date.new(1956, 12, 6)) }
   let(:michael_amott) { Artist.new('Michael Amott', 'Arch Enemy', 'guitar', Date.new(1969, 7, 28)) }
   let(:don_airey)     { Artist.new('Don Airey', 'Ozzy Osbourne', 'keyboard', Date.new(1948, 6, 21)) }
