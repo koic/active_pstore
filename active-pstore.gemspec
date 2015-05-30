@@ -19,17 +19,10 @@ Gem::Specification.new do |s|
   s.email = 'koic.ito@gmail.com'
   s.homepage = 'http://github.com/koic/active-pstore'
 
-  s.files = [
+  s.files = Dir[
     'README.md',
     'README.ja.md',
-    'lib/active_pstore.rb',
-    'lib/active_pstore/base.rb',
-    'lib/active_pstore/connection_handling.rb',
-    'lib/active_pstore/errors.rb',
-    'lib/active_pstore/finder_methods.rb',
-    'lib/active_pstore/persistence.rb',
-    'lib/active_pstore/version.rb',
-    'active-pstore.gemspec',
+    'lib/**/*',
     'LICENSE'
   ]
   s.require_paths = ['lib']
