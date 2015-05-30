@@ -6,11 +6,11 @@ This library has ActiveRecord like interface. Use [pstore](http://docs.ruby-lang
 
 ## FEATURES/PROBLEMS
 
-* Oh so many problems…
-* Transaction
-* Data Migration
-* Performance
-* Not solving the root cause for enterprise...
+* Oh so many problems...
+* Transaction NOT supported
+* Data Migration NOT supported
+* Performance (caused by implementation)
+* and Not solving the root cause for enterprise...
 
 ## SYNOPSIS
 
