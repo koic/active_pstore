@@ -7,7 +7,7 @@ module ActivePStore
 
     class << self
       def establish_connection(options = {})
-        @@db = PStore.new(options[:database] || options['database'])
+        @@db = PStore.new((options[:database] || options['database']).to_s)
       end
 
       def find(id)
@@ -17,8 +17,8 @@ module ActivePStore
       end
 
       def all
-        @@db.transaction do |pstore|
-          pstore[self.key]
+        use_connection do |connection|
+          connection[self.key]
         end
       end
 
@@ -77,6 +77,16 @@ module ActivePStore
       def key
         self.class.to_s
       end
+
+      def use_connection
+        @@db.transaction do |pstore|
+          yield pstore
+        end
+      rescue # uninitialized class variable @@db in ActivePStore::Base
+        raise ActivePStore::ConnectionNotEstablished.new(
+         "Raised when connection to the pstore file path could not been established (for example when ActivePStore.establish_connection(database: '/path/to/file') is given a nil object)."
+        )
+      end
     end
 
     def new_record?
@@ -84,8 +94,8 @@ module ActivePStore
     end
 
     def destroy
-      @@db.transaction do |pstore|
-        pstore[self.class.key].delete_if {|obj| obj.id == self.id }
+      ActivePStore::Base.use_connection do |connection|
+        connection[self.class.key].delete_if {|obj| obj.id == self.id }
       end
 
       self
@@ -106,17 +116,17 @@ module ActivePStore
     end
 
     def save
-      @@db.transaction do |pstore|
+      ActivePStore::Base.use_connection do |connection|
         if new_record?
           @id = SecureRandom.hex
 
-          if pstore[self.class.key]
-            pstore[self.class.key] << self
+          if connection[self.class.key]
+            connection[self.class.key] << self
           else
-            pstore[self.class.key] = [self]
+            connection[self.class.key] = [self]
           end
         else
-          pstore[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
+          connection[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
         end
       end
 

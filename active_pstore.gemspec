@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     'README.ja.md',
     'lib/active_pstore.rb',
     'lib/active_pstore/base.rb',
+    'lib/active_pstore/connection_not_established.rb',
     'lib/active_pstore/record_not_found.rb',
     'lib/active_pstore/version.rb',
     'active_pstore.gemspec',

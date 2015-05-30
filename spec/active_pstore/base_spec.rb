@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'active_pstore'
+require 'date'
 
 describe ActivePStore::Base do
   class Artist < ActivePStore::Base
@@ -28,6 +29,18 @@ describe ActivePStore::Base do
     michael_amott.save
     don_airey.save
     zakk_wylde.save
+  end
+
+  describe '.establish_connection' do
+    context 'connection to the pstore file path could not been established' do
+      before do
+        Artist.establish_connection(database: nil)
+      end
+
+      specify {
+        expect { Artist.all }.to raise_error(ActivePStore::ConnectionNotEstablished)
+      }
+    end
   end
 
   describe '.first' do
