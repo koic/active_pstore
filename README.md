@@ -42,8 +42,14 @@ Artist.establish_connection(database: '/tmp/active_pstore_test')
 randy_rhoads.save
 ```
 
-allocate value of ActivePStore::Base#id using SecureRandom.hex at ActivePStore::Base#id.
+database key is string of class name.
 
+```
+database = PStore.new('/path/to/name')
+database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
+```
+
+allocate value of ActivePStore::Base#id using SecureRandom.hex at ActivePStore::Base#id.
 
 ```
 > foo.id # => nil 

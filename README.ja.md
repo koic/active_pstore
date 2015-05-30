@@ -43,6 +43,13 @@ Artist.establish_connection(database: '/tmp/active_pstore_test')
 randy_rhoads.save
 ```
 
+saveメソッドの対象オブジェクトのクラス名がPStoreのキーになります。
+
+```
+database = PStore.new('/path/to/name')
+database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
+```
+
 保存時にSecureRandom.hexの値を使ったActivePStore::Base#idが付与されます。
 
 ```
