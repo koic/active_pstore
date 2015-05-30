@@ -7,16 +7,14 @@ This library has ActiveRecord like interface. Use pstore to store data.
 ## FEATURES/PROBLEMS
 
 * Oh so many problems…
-* Safety...
 * Transaction
-* Performance
 * Data Migration
-* Not solving the root cause...
-* Just to name a few
+* Performance
+* Not solving the root cause for enterprise...
 
 ## SYNOPSIS
 
-class definition and instantiate
+### class definition and instantiate
 
 ```
 require 'active_pstore'
@@ -32,39 +30,48 @@ end
 randy_rhoads = Artist.new('Randy Rhoads')
 ```
 
-specify data store path
+### specify data store path
 
 ```
 Artist.establish_connection(database: '/tmp/active_pstore_test')
 ```
 
-save
+### save
 
 ```
 randy_rhoads.save
 ```
 
-find series
+allocate value of ActivePStore::Base#id using SecureRandom.hex at ActivePStore::Base#id.
+
 
 ```
-Artist.find('388980778246cbcbfcbb7a8292f28c37') # ActivePStore::Base#id is an SecureRandom.hex value
-Artist.where(name: 'Randy Rhoads')
+> foo.id # => nil 
+> randy_rhoads.save
+> foo.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+```
+
+### find series
+
+```
 Artist.all
 Artist.first
 Artist.last
+Artist.find('388980778246cbcbfcbb7a8292f28c37') # ActivePStore::Base#id is an SecureRandom.hex value
+Artist.where(name: 'Randy Rhoads')
 ```
 
-between
+Range
 
 ```
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
 
-and spec codes...
+see spec codes for more information.
 
 ## REQUIREMENTS
 
-* no requirements
+no requirements
 
 ## INSTALL
 

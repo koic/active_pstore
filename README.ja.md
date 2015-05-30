@@ -8,16 +8,14 @@ ActiveRecordに似たインターフェイスを持ったライブラリです�
 ## FEATURES/PROBLEMS
 
 * それなりに問題を持っています
-* 安全面とか
 * トランザクション
-* パフォーマンス (特に実装面とか)
 * データマイグレーション
-* エンタープライズには向かないです
-* こんなところ？
+* パフォーマンス (特に実装面とか)
+* こういったエンタープライズ要件には向かないです
 
 ## SYNOPSIS
 
-クラス定義とインスタンスの生成
+### クラス定義とインスタンスの生成
 
 ```
 require 'active_pstore'
@@ -33,26 +31,34 @@ end
 randy_rhoads = Artist.new('Randy Rhoads')
 ```
 
-データの保存先のファイルパス指定
+### データの保存先のファイルパス指定
 
 ```
 Artist.establish_connection(database: '/tmp/active_pstore_test')
 ```
 
-データの保存
+### インスタンスの保存
 
 ```
 randy_rhoads.save
 ```
 
-検索系
+保存時にSecureRandom.hexの値を使ったActivePStore::Base#idが付与されます。
 
 ```
-Artist.find('388980778246cbcbfcbb7a8292f28c37') # 保存時にSecureRandom.hexの値を使ったActivePStore::Base#idを付与されています
-Artist.where(name: 'Randy Rhoads')
+> randy_rhoads.id # => nil 
+> randy_rhoads.save
+> randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+```
+
+### 検索系
+
+```
 Artist.all
 Artist.first
 Artist.last
+Artist.find('388980778246cbcbfcbb7a8292f28c37')
+Artist.where(name: 'Randy Rhoads')
 ```
 
 範囲指定
