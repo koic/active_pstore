@@ -43,9 +43,9 @@ describe ActivePStore::Base do
     end
   end
 
-  describe '.key' do
+  describe '.pstore_key' do
     context Artist do
-      subject { Artist.key }
+      subject { Artist.pstore_key }
 
       it { is_expected.to eq('Artist') }
     end

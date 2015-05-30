@@ -18,7 +18,7 @@ module ActivePStore
 
       def all
         use_connection do |connection|
-          connection[self.key] || []
+          connection[self.pstore_key] || []
         end
       end
 
@@ -74,7 +74,7 @@ module ActivePStore
         all.count
       end
 
-      def key
+      def pstore_key
         self.to_s
       end
 
@@ -95,7 +95,7 @@ module ActivePStore
 
     def destroy
       ActivePStore::Base.use_connection do |connection|
-        connection[self.class.key].delete_if {|obj| obj.id == self.id }
+        connection[self.class.pstore_key].delete_if {|obj| obj.id == self.id }
       end
 
       self
@@ -120,13 +120,13 @@ module ActivePStore
         if new_record?
           @id = SecureRandom.hex
 
-          if connection[self.class.key]
-            connection[self.class.key] << self
+          if connection[self.class.pstore_key]
+            connection[self.class.pstore_key] << self
           else
-            connection[self.class.key] = [self]
+            connection[self.class.pstore_key] = [self]
           end
         else
-          connection[self.class.key].map! {|obj| obj.id == self.id ? self : obj }
+          connection[self.class.pstore_key].map! {|obj| obj.id == self.id ? self : obj }
         end
       end
 
