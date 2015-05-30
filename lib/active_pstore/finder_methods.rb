@@ -21,5 +21,9 @@ module ActivePStore
     def last
       all.last
     end
+
+    def take(limit = nil)
+      limit ? all.take(limit) : first
+    end
   end
 end

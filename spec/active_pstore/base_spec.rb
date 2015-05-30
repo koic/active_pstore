@@ -156,6 +156,22 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '.take' do
+    context 'with argument' do
+      subject { Artist.take(2) }
+
+      it { expect(subject.size).to eq 2 }
+      it { expect(subject[0].name).to eq randy_rhoads.name }
+      it { expect(subject[1].name).to eq michael_amott.name }
+    end
+
+    context 'without argument' do
+      subject { Artist.take }
+
+      it { expect(subject.name).to eq randy_rhoads.name }
+    end
+  end
+
   describe '.where' do
     subject { Artist.where(conditions) }
 
