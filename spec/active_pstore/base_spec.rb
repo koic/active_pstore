@@ -16,6 +16,14 @@ describe ActivePStore::Base do
     zakk_wylde.save
   end
 
+  describe 'ActivePStore::Base.new' do
+    subject { ActivePStore::Base.new }
+
+    it {
+      expect { subject }.to raise_error(NotImplementedError, 'ActivePStore::Base is an abstract class and cannot be instantiated.')
+    }
+  end
+
   describe '.establish_connection' do
     context 'connection to the pstore file path could not been established' do
       before do

@@ -2,6 +2,7 @@ module ActivePStore
   class Base
     extend ActivePStore::ConnectionHandling
     extend ActivePStore::FinderMethods
+    extend ActivePStore::Inheritance
     include ActivePStore::Persistence
 
     class << self
