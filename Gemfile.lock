@@ -26,4 +26,4 @@ PLATFORMS
 
 DEPENDENCIES
   active-pstore!
-  rspec
+  rspec (>= 3.0.0)
