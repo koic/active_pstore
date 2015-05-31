@@ -1,4 +1,4 @@
-# ActivePStore
+# Active PStore
 
 ## DESCRIPTION
 
