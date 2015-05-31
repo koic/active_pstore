@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active_pstore (0.1.0)
+    active-pstore (0.2.0)
 
 GEM
   remote: http://rubygems.org/
@@ -25,5 +25,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_pstore!
+  active-pstore!
   rspec
