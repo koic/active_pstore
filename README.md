@@ -2,7 +2,7 @@
 
 ## DESCRIPTION
 
-This library has ActiveRecord like interface. Use [pstore](http://docs.ruby-lang.org/en/2.2.0/PStore.html) to store data.
+This library has [Active Record](https://github.com/rails/rails/tree/master/activerecord) like interface. Use [pstore](http://docs.ruby-lang.org/en/2.2.0/PStore.html) to store data.
 
 ## FEATURES/PROBLEMS
 

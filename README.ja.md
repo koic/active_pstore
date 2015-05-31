@@ -2,7 +2,7 @@
 
 ## DESCRIPTION
 
-ActiveRecordに似たインターフェイスを持ったライブラリです。
+[Active Record](https://github.com/rails/rails/tree/master/activerecord)に似たインターフェイスを持ったライブラリです。
 データの保存には[pstore](http://docs.ruby-lang.org/ja/2.2.0/library/pstore.html)を使います。
 
 ## FEATURES/PROBLEMS
