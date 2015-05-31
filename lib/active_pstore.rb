@@ -1,6 +1,7 @@
 module ActivePStore; end
 
 require 'active_pstore/connection_handling'
+require 'active_pstore/core'
 require 'active_pstore/finder_methods'
 require 'active_pstore/inheritance'
 require 'active_pstore/persistence'
