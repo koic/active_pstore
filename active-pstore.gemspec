@@ -7,8 +7,8 @@ require 'active_pstore/version'
 Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.name = 'active-pstore'
-  s.summary = 'This library has ActiveRecord like interface. Use pstore to store data.'
-  s.description = 'This library has ActiveRecord like interface. Use pstore to store data.'
+  s.summary = 'This library has Active Record like interface. Use pstore to store data.'
+  s.description = 'This library has Active Record like interface. Use pstore to store data.'
   s.date = '2015-05-31'
 
   s.version = ActivePStore::VERSION
