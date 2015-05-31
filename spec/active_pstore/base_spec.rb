@@ -401,6 +401,14 @@ describe ActivePStore::Base do
     end
   end
 
+  describe '#==' do
+    let(:let) { randy_rhoads }
+
+    subject { Artist.find(randy_rhoads) }
+
+    it { is_expected.to eq randy_rhoads }
+  end
+
   describe 'default attribute' do
     describe 'id' do
       let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
