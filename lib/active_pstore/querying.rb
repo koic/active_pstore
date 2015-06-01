@@ -1,7 +1,7 @@
 module ActivePStore
   module Querying
-    def update_all(attrs)
-      all.update_all(attrs)
+    def update_all(updates)
+      all.update_all(updates)
     end
 
     def destroy_all

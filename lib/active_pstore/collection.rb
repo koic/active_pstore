@@ -4,9 +4,9 @@ module ActivePStore
       @objects = objects
     end
 
-    def update_all(attrs)
+    def update_all(updates)
       @objects.each {|obj|
-        obj.update_attributes(attrs)
+        obj.update_attributes(updates)
       }.count
     end
 
