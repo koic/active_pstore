@@ -2,7 +2,11 @@ require 'pstore'
 
 module ActivePStore
   module ConnectionHandling
-    def establish_connection(options = {})
+    def establish_connection(options)
+      unless options.is_a? Hash
+        raise ArgumentError, "You must specify at database configuration. Example: ActivePStore::Base.establish_connection(database: '/path/to/file')"
+      end
+
       @@db = PStore.new((options[:database] || options['database']).to_s)
     end
 
