@@ -15,7 +15,7 @@ module ActivePStore
         }
       end
 
-      ret
+      ActivePStore::Collection.new(ret)
     end
   end
 end

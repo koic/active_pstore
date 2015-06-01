@@ -3,6 +3,7 @@ module ActivePStore
     extend ActivePStore::ConnectionHandling
     extend ActivePStore::FinderMethods
     extend ActivePStore::Inheritance
+    extend ActivePStore::Querying
     extend ActivePStore::QueryMethods
     include ActivePStore::Core
     include ActivePStore::Persistence
@@ -10,26 +11,8 @@ module ActivePStore
     class << self
       def all
         use_connection do |connection|
-          connection[self.pstore_key] || []
+          ActivePStore::Collection.new(connection[self.pstore_key] || [])
         end
-      end
-
-      def update_all(attrs)
-        all.each {|obj|
-          obj.update_attributes(attrs)
-        }.count
-      end
-
-      def destroy_all
-        all.inject(0) {|result, obj|
-          obj.destroy
-
-          result += 1
-        }
-      end
-
-      def count
-        all.count
       end
 
       def pstore_key
