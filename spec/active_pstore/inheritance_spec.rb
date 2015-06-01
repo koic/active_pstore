@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ActivePStore::ConnectionHandling do
+describe ActivePStore::Inheritance do
   include_context 'Rock stars on stage'
 
   describe 'ActivePStore::Base.new' do

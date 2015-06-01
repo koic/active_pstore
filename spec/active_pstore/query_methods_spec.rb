@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'date'
 
-describe ActivePStore::Base do
+describe ActivePStore::QueryMethods do
   include_context 'Rock stars on stage'
 
   describe '.where' do
