@@ -49,7 +49,7 @@ database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 
-allocate value of ActivePStore::Base#id using SecureRandom.hex at ActivePStore::Base#id.
+allocate value of ActivePStore::Base#id using [SecureRandom.hex](http://ruby-doc.org/stdlib-2.2.0/libdoc/securerandom//rdoc/SecureRandom.html#method-c-hex).
 
 ```
 > foo.id # => nil 
