@@ -1,3 +1,9 @@
+## 0.3.1
+
+Bug fix:
+
+* `ActivePStore::Base.find_by(conditions)`
+
 ## 0.3.0
 
 introduce ActivePStore::Collection. (inspire by ActiveRecord::Relation)
