@@ -69,10 +69,10 @@ describe ActivePStore::FinderMethods do
   shared_examples_for 'find_by series' do
     context 'exists data' do
       context 'have 1 condition' do
-        let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
+        let(:conditions) { {associated_act: 'Arch Enemy'} }
 
         it { is_expected.to be_an(Artist) }
-        it { expect(subject.name).to eq('Randy Rhoads') }
+        it { expect(subject.name).to eq('Michael Amott') }
       end
 
       context 'have 2 conditions' do

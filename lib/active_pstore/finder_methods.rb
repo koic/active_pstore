@@ -7,7 +7,7 @@ module ActivePStore
     end
 
     def find_by(conditions = {})
-      where.first
+      where(conditions).first
     end
 
     def find_by!(conditions = {})
