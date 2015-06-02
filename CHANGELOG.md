@@ -4,10 +4,10 @@ introduce ActivePStore::Collection. (inspire by ActiveRecord::Relation)
 
 describable codes:
 
-* `Artist.where(conditions).update_all(updates)`
-* `Artist.where(conditions).destroy_all`
-* `Artist.where(conditions).count`
-* `Artist.where(conditions).empty?`
+* `ActivePStore::Base.where(conditions).update_all(updates)`
+* `ActivePStore::Base.where(conditions).destroy_all`
+* `ActivePStore::Base.where(conditions).count`
+* `ActivePStore::Base.where(conditions).empty?`
 
 ## 0.2.0
 
