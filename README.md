@@ -1,6 +1,4 @@
-# Active PStore
-
-## DESCRIPTION
+# Active PStore [![Build Status](https://travis-ci.org/koic/active-pstore.svg)](https://travis-ci.org/koic/active-pstore) [![Code Climate](https://codeclimate.com/github/koic/active-pstore/badges/gpa.svg)](https://codeclimate.com/github/koic/active-pstore) [![Gem Version](https://badge.fury.io/rb/active-pstore.svg)](http://badge.fury.io/rb/active-pstore)
 
 This library has [Active Record](https://github.com/rails/rails/tree/master/activerecord) like interface. Use [pstore](http://docs.ruby-lang.org/en/2.2.0/PStore.html) to store data.
 
