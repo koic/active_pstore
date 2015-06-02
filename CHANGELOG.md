@@ -2,7 +2,7 @@
 
 Bug fix:
 
-* `ActivePStore::Base.find_by(conditions)`
+* [`ActivePStore::Base.find_by(conditions)`](https://github.com/koic/active-pstore/commit/8cf9d41c5434fe8f6f60e98b20e2e1ec07a05d6a)
 
 ## 0.3.0
 
