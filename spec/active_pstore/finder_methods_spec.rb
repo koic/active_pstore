@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ActivePStore::FinderMethods do
   include_context 'Rock stars on stage'
 
