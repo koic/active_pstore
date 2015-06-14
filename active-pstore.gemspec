@@ -30,5 +30,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
   s.license = 'MIT'
 
+  s.add_development_dependency('codeclimate-test-reporter')
   s.add_development_dependency('rspec', '>= 3.0.0')
 end

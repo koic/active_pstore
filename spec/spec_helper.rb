@@ -1,3 +1,6 @@
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 require 'active_pstore'
 
 Dir['./spec/support/**/*.rb'].each {|f| require f}
