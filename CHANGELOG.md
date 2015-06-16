@@ -1,3 +1,7 @@
+## 0.4.0
+
+* rename this library (active-pstore -> active_pstore). change to recommended gem name.
+
 ## 0.3.1
 
 Bug fix:
