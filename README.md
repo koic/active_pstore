@@ -1,4 +1,4 @@
-# Active PStore [![Build Status](https://travis-ci.org/koic/active-pstore.svg)](https://travis-ci.org/koic/active-pstore) [![Code Climate](https://codeclimate.com/github/koic/active-pstore/badges/gpa.svg)](https://codeclimate.com/github/koic/active-pstore) [![Test Coverage](https://codeclimate.com/github/koic/active-pstore/badges/coverage.svg)](https://codeclimate.com/github/koic/active-pstore/coverage) [![Gem Version](https://badge.fury.io/rb/active-pstore.svg)](http://badge.fury.io/rb/active-pstore)
+# Active PStore [![Build Status](https://travis-ci.org/koic/active_pstore.svg)](https://travis-ci.org/koic/active_pstore) [![Code Climate](https://codeclimate.com/github/koic/active_pstore/badges/gpa.svg)](https://codeclimate.com/github/koic/active_pstore) [![Test Coverage](https://codeclimate.com/github/koic/active_pstore/badges/coverage.svg)](https://codeclimate.com/github/koic/active_pstore/coverage) [![Gem Version](https://badge.fury.io/rb/active_pstore.svg)](http://badge.fury.io/rb/active_pstore)
 
 This library has [Active Record](https://github.com/rails/rails/tree/master/activerecord) like interface. Use [pstore](http://docs.ruby-lang.org/en/2.2.0/PStore.html) to store data.
 
@@ -82,7 +82,7 @@ no requirements
 Add these lines to your application's Gemfile:
 
 ```
-gem 'active-pstore'
+gem 'active_pstore'
 ```
 
 And then execute:
@@ -94,7 +94,7 @@ $ bundle
 Or install it yourself as:
 
 ```
-$ gem install active-pstore
+$ gem install active_pstore
 ```
 
 ## LICENCE
