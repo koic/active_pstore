@@ -1,4 +1,6 @@
-# Active PStore [Active Record](https://github.com/rails/rails/tree/master/activerecord)に似たインターフェイスを持ったライブラリです。
+# Active PStore [![Build Status](https://travis-ci.org/koic/active_pstore.svg)](https://travis-ci.org/koic/active_pstore) [![Code Climate](https://codeclimate.com/github/koic/active_pstore/badges/gpa.svg)](https://codeclimate.com/github/koic/active_pstore) [![Test Coverage](https://codeclimate.com/github/koic/active_pstore/badges/coverage.svg)](https://codeclimate.com/github/koic/active_pstore/coverage) [![Gem Version](https://badge.fury.io/rb/active_pstore.svg)](http://badge.fury.io/rb/active_pstore)
+
+[Active Record](https://github.com/rails/rails/tree/master/activerecord)に似たインターフェイスを持ったライブラリです。
 データの保存には[pstore](http://docs.ruby-lang.org/ja/2.2.0/library/pstore.html)を使います。
 
 ## FEATURES/PROBLEMS
