@@ -14,7 +14,7 @@ This library has [Active Record](https://github.com/rails/rails/tree/master/acti
 
 ### class definition and instantiate
 
-```
+```ruby
 require 'active_pstore'
 
 class Artist < ActivePStore::Base
@@ -30,26 +30,26 @@ randy_rhoads = Artist.new('Randy Rhoads')
 
 ### specify data store path
 
-```
+```ruby
 Artist.establish_connection(database: '/path/to/file')
 ```
 
 ### save
 
-```
+```ruby
 randy_rhoads.save
 ```
 
 database key is string of class name.
 
-```
+```ruby
 database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 
 allocate value of ActivePStore::Base#id using [SecureRandom.hex](http://ruby-doc.org/stdlib-2.2.0/libdoc/securerandom//rdoc/SecureRandom.html#method-c-hex).
 
-```
+```ruby
 > foo.id # => nil 
 > randy_rhoads.save
 > foo.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
@@ -57,7 +57,7 @@ allocate value of ActivePStore::Base#id using [SecureRandom.hex](http://ruby-doc
 
 ### find series
 
-```
+```ruby
 Artist.all
 Artist.first
 Artist.last
@@ -67,7 +67,7 @@ Artist.where(name: 'Randy Rhoads')
 
 Range
 
-```
+```ruby
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
 

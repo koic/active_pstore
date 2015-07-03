@@ -15,7 +15,7 @@
 
 ### クラス定義とインスタンスの生成
 
-```
+```ruby
 require 'active_pstore'
 
 class Artist < ActivePStore::Base
@@ -31,26 +31,26 @@ randy_rhoads = Artist.new('Randy Rhoads')
 
 ### データの保存先のファイルパス指定
 
-```
+```ruby
 Artist.establish_connection(database: '/path/to/file')
 ```
 
 ### インスタンスの保存
 
-```
+```ruby
 randy_rhoads.save
 ```
 
 saveメソッドの対象オブジェクトのクラス名がPStoreのキーになります。
 
-```
+```ruby
 database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 
 保存時に[SecureRandom.hex](http://docs.ruby-lang.org/ja/2.2.0/class/SecureRandom.html#S_HEX)の値を使ったActivePStore::Base#idが付与されます。
 
-```
+```ruby
 > randy_rhoads.id # => nil 
 > randy_rhoads.save
 > randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
@@ -58,7 +58,7 @@ database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist c
 
 ### 検索系
 
-```
+```ruby
 Artist.all
 Artist.first
 Artist.last
@@ -68,7 +68,7 @@ Artist.where(name: 'Randy Rhoads')
 
 範囲指定
 
-```
+```ruby
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
 
