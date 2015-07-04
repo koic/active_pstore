@@ -5,7 +5,7 @@ This library has [Active Record](https://github.com/rails/rails/tree/master/acti
 ## FEATURES/PROBLEMS
 
 * Oh so many problems...
-* Transaction NOT supported
+* Transaction NOT supported (caused by implementation)
 * Data Migration NOT supported
 * Performance (caused by implementation)
 * and Not solving the root cause for enterprise...
