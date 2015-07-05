@@ -10,29 +10,19 @@ describe ActivePStore::QueryMethods do
       context 'have 1 condition' do
         let(:conditions) { {associated_act: 'Ozzy Osbourne'} }
 
-        it { is_expected.to be_an(ActivePStore::Collection) }
-        it { expect(subject.size).to eq(3) }
-        it { expect(subject[0].name).to eq('Randy Rhoads') }
-        it { expect(subject[1].name).to eq('Don Airey') }
-        it { expect(subject[2].name).to eq('Zakk Wylde') }
+        it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, don_airey, zakk_wylde])) }
       end
 
       context 'have 2 conditions' do
         let(:conditions) { {associated_act: 'Ozzy Osbourne', instrument: 'guitar'} }
 
-        it { is_expected.to be_an(ActivePStore::Collection) }
-        it { expect(subject.size).to eq(2) }
-        it { expect(subject[0].name).to eq('Randy Rhoads') }
-        it { expect(subject[1].name).to eq('Zakk Wylde') }
+        it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, zakk_wylde])) }
       end
 
       context 'date between' do
         let(:conditions) { {birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6)} }
 
-        it { is_expected.to be_an(ActivePStore::Collection) }
-        it { expect(subject.size).to eq(2) }
-        it { expect(subject[0].name).to eq('Randy Rhoads') }
-        it { expect(subject[1].name).to eq('Zakk Wylde') }
+        it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, zakk_wylde])) }
       end
     end
 

@@ -29,5 +29,18 @@ module ActivePStore
     def method_missing(method_name, *args, &block)
       @objects.__send__(method_name, *args, &block)
     end
+
+    def ==(comparison_object)
+      comparison_object.instance_of?(self.class) && self.map(&:id) <=> comparison_object.map(&:id)
+    end
+    alias :eql? :==
+
+    def hash
+      if id
+        id.hash
+      else
+        super
+      end
+    end
   end
 end
