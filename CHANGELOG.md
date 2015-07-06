@@ -1,3 +1,7 @@
+## 0.4.1
+
+* [identify ActivePStore::Collection object](https://github.com/koic/active_pstore/commit/0dc9b7e1a2054ecfaaf11f0cdbd9bae20251f6ee)
+
 ## 0.4.0
 
 * rename this library (active-pstore -> active_pstore). change to recommended gem name.
