@@ -98,6 +98,12 @@ Or install it yourself as:
 $ gem install active_pstore
 ```
 
+And require it as:
+
+```
+require 'active_pstore'
+```
+
 ## LICENCE
 
 The MIT Licence
