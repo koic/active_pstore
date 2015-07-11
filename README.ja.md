@@ -104,6 +104,10 @@ And require it as:
 require 'active_pstore'
 ```
 
+## プレゼンテーション文書
+
+* 誕生秘話 ... http://www.slideshare.net/koic/software-development-and-rubygems
+
 ## LICENCE
 
 The MIT Licence
