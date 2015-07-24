@@ -1,6 +1,7 @@
 module ActivePStore
   class Base
     extend ActivePStore::ConnectionHandling
+    extend ActivePStore::DynamicMatchers
     extend ActivePStore::FinderMethods
     extend ActivePStore::Inheritance
     extend ActivePStore::Querying
