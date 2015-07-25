@@ -1,3 +1,7 @@
+## 0.4.2
+
+* [add dynamic finder method](https://github.com/koic/active_pstore/commit/07b2dcb664022b283782cf12c9725e14e591489d)
+
 ## 0.4.1
 
 * [identify ActivePStore::Collection object](https://github.com/koic/active_pstore/commit/0dc9b7e1a2054ecfaaf11f0cdbd9bae20251f6ee)
