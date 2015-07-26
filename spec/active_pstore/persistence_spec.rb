@@ -100,19 +100,21 @@ describe ActivePStore::Persistence do
     end
   end
 
-  describe '#update_attributes' do
-    subject { randy_rhoads.update_attributes(associated_act: 'The Super Band', instrument: 'vocal') }
+  %w(update update_attributes).each do |method_name|
+    describe "##{method_name}" do
+      subject { randy_rhoads.__send__(method_name, associated_act: 'The Super Band', instrument: 'vocal') }
 
-    it { is_expected.to be true }
-    it {
-      expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
-    }
-    it {
-      expect { subject }.to change(randy_rhoads, :instrument).from('guitar').to('vocal')
-    }
-    it {
-      expect { subject }.to_not change(zakk_wylde, :associated_act).from('Ozzy Osbourne')
-    }
+      it { is_expected.to be true }
+      it {
+        expect { subject }.to change(randy_rhoads, :associated_act).from('Ozzy Osbourne').to('The Super Band')
+      }
+      it {
+        expect { subject }.to change(randy_rhoads, :instrument).from('guitar').to('vocal')
+      }
+      it {
+        expect { subject }.to_not change(zakk_wylde, :associated_act).from('Ozzy Osbourne')
+      }
+    end
   end
 
   describe 'default attribute' do

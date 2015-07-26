@@ -40,12 +40,14 @@ module ActivePStore
       save
     end
 
-    def update_attributes(attrs)
+    def update(attrs)
       attrs.each do |attr_name, attr_value|
         self.__send__("#{attr_name}=", attr_value)
       end
 
       save
     end
+
+    alias update_attributes update
   end
 end
