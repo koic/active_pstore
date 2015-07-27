@@ -72,7 +72,7 @@ Artist.where(name: 'Randy Rhoads')
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
 
-続きはテストコードをご参照ください。
+続きは[テストコード](https://github.com/koic/active_pstore/tree/master/spec)をご参照ください。
 
 ## REQUIREMENTS
 

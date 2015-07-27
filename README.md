@@ -71,7 +71,7 @@ Range
 Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 ```
 
-see spec codes for more information.
+see [spec codes](https://github.com/koic/active_pstore/tree/master/spec) for more information.
 
 ## REQUIREMENTS
 
