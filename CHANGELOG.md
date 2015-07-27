@@ -1,3 +1,7 @@
+## 0.4.3
+
+* [add ActivePStore#update method](https://github.com/koic/active_pstore/commit/464f7f38e1c9d05d8fc5a6ce1e4cfce8fc0029f7)
+
 ## 0.4.2
 
 * [add dynamic finder method](https://github.com/koic/active_pstore/commit/07b2dcb664022b283782cf12c9725e14e591489d)
