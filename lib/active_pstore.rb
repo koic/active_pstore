@@ -1,5 +1,6 @@
 module ActivePStore; end
 
+require 'active_pstore/calculations'
 require 'active_pstore/collection'
 require 'active_pstore/connection_handling'
 require 'active_pstore/core'

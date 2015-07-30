@@ -1,5 +1,7 @@
 module ActivePStore
   class Collection
+    include ActivePStore::Calculations
+
     def initialize(objects)
       @objects = objects
     end
