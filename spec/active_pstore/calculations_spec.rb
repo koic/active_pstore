@@ -2,10 +2,12 @@ describe ActivePStore::Calculations do
   include_context 'Rock stars on stage'
 
   describe '#ids' do
-    let(:artists) { Artist.all }
+    subject { receiver.ids }
 
-    subject { artists.ids }
+    context 'receiver is an ActivePStore::Collection' do
+      let(:receiver) { Artist.all }
 
-    it { is_expected.to eq artists.map(&:id) }
+      it { is_expected.to eq receiver.map(&:id) }
+    end
   end
 end
