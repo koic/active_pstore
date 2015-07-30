@@ -16,6 +16,10 @@ module ActivePStore
         end
       end
 
+      def ids
+        all.map(&:id)
+      end
+
       def pstore_key
         self.to_s
       end
