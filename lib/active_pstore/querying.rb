@@ -11,9 +11,5 @@ module ActivePStore
     def count
       all.count
     end
-
-    def emtpy?
-      all.empty?
-    end
   end
 end
