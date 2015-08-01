@@ -7,11 +7,11 @@ module ActivePStore
 
       conditions.each do |key, value|
         ret = ret.select {|obj|
-        if value.is_a? Range
-          value.include?(obj.__send__(key))
-        else
-          obj.__send__(key) == value
-        end
+          if value.is_a? Range
+            value.include?(obj.__send__(key))
+          else
+            obj.__send__(key) == value
+          end
         }
       end
 
