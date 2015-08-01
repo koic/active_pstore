@@ -1,3 +1,8 @@
+## 0.4.4
+
+* [add ActivePStore::Base.ids method](https://github.com/koic/active_pstore/commit/6fca3160351a0485455da9c18713cf26095c2078)
+* [add ActivePStore::Collection#ids method](https://github.com/koic/active_pstore/commit/2becc3c96997388484e90c45f3acb5e91dbbfe0c)
+
 ## 0.4.3
 
 * [add ActivePStore#update method](https://github.com/koic/active_pstore/commit/464f7f38e1c9d05d8fc5a6ce1e4cfce8fc0029f7)
