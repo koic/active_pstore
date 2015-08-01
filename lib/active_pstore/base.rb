@@ -17,7 +17,7 @@ module ActivePStore
       end
 
       def ids
-        all.map(&:id)
+        all.ids
       end
 
       def pstore_key
