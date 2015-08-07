@@ -20,6 +20,10 @@ module ActivePStore
         all.ids
       end
 
+      def minimum(attr_name)
+        all.minimum(attr_name)
+      end
+
       def pstore_key
         self.to_s
       end
