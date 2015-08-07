@@ -11,7 +11,7 @@ describe ActivePStore::Calculations do
 
   describe 'ActivePStore::Collection#ids' do
     context 'all artists' do
-      subject { Artist.all.ids }
+      subject { Artist.ids }
 
       it { is_expected.to eq all_artist_ids }
     end
