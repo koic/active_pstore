@@ -36,4 +36,18 @@ describe ActivePStore::Calculations do
       it { is_expected.to eq zakk_wylde.birth_date }
     end
   end
+
+  describe 'ActivePStore::Collection#maximum' do
+    context 'all artists' do
+      subject { Artist.maximum(:birth_date) }
+
+      it { is_expected.to eq michael_amott.birth_date }
+    end
+
+    context 'only guitarists' do
+      subject { Artist.where(instrument: 'guitar').maximum(:birth_date) }
+
+      it { is_expected.to eq michael_amott.birth_date }
+    end
+  end
 end

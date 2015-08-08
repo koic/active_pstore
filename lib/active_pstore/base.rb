@@ -24,6 +24,10 @@ module ActivePStore
         all.minimum(attr_name)
       end
 
+      def maximum(attr_name)
+        all.maximum(attr_name)
+      end
+
       def pstore_key
         self.to_s
       end
