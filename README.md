@@ -50,9 +50,9 @@ database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist c
 allocate value of ActivePStore::Base#id using [SecureRandom.hex](http://ruby-doc.org/stdlib-2.2.0/libdoc/securerandom//rdoc/SecureRandom.html#method-c-hex).
 
 ```ruby
-> foo.id # => nil 
+> randy_rhoads.id # => nil
 > randy_rhoads.save
-> foo.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+> randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
 ```
 
 ### find series
