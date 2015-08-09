@@ -1,3 +1,8 @@
+## 0.4.5
+
+* [add minimum method](https://github.com/koic/active_pstore/tree/9cb90a041fad051415739c3791e65fe23064bd45)
+* [add maximum method](https://github.com/koic/active_pstore/tree/1e532b416576b42247db48fa9c34155a8efb86ff)
+
 ## 0.4.4
 
 * [add ActivePStore::Base.ids method](https://github.com/koic/active_pstore/commit/6fca3160351a0485455da9c18713cf26095c2078)

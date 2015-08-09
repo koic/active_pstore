@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active_pstore (0.4.4)
+    active_pstore (0.4.5)
 
 GEM
   remote: http://rubygems.org/
