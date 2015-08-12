@@ -20,6 +20,10 @@ module ActivePStore
         all.ids
       end
 
+      def count(attr_name = nil)
+        all.count(attr_name)
+      end
+
       def minimum(attr_name)
         all.minimum(attr_name)
       end

@@ -20,8 +20,12 @@ module ActivePStore
       }
     end
 
-    def count
-      @objects.count
+    def count(attr_name = nil)
+      if attr_name.nil?|| attr_name == :all
+        @objects.count
+      else
+        @objects.map(&attr_name.to_sym).compact.count
+      end
     end
 
     def empty?
