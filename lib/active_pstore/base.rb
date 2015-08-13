@@ -6,6 +6,7 @@ module ActivePStore
     extend ActivePStore::Inheritance
     extend ActivePStore::Querying
     extend ActivePStore::QueryMethods
+    extend ActivePStore::ModelSchema
     include ActivePStore::Core
     include ActivePStore::Persistence
 
@@ -30,10 +31,6 @@ module ActivePStore
 
       def maximum(attr_name)
         all.maximum(attr_name)
-      end
-
-      def pstore_key
-        self.to_s
       end
     end
   end
