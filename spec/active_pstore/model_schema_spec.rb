@@ -8,4 +8,12 @@ describe ActivePStore::ModelSchema do
       it { is_expected.to eq('Artist') }
     end
   end
+
+  describe '.table_name' do
+    context Artist do
+      subject { Artist.table_name }
+
+      it { is_expected.to eq('Artist') }
+    end
+  end
 end
