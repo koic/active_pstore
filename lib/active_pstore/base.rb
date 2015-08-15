@@ -1,3 +1,5 @@
+require 'forwardable'
+
 module ActivePStore
   class Base
     extend ActivePStore::ConnectionHandling
@@ -10,27 +12,15 @@ module ActivePStore
     include ActivePStore::Core
     include ActivePStore::Persistence
 
+    extend SingleForwardable
+
+    def_delegators :all, :ids, :count, :minimum, :maximum
+
     class << self
       def all
         use_connection do |connection|
           ActivePStore::Collection.new(connection[self.pstore_key] || [])
         end
-      end
-
-      def ids
-        all.ids
-      end
-
-      def count(attr_name = nil)
-        all.count(attr_name)
-      end
-
-      def minimum(attr_name)
-        all.minimum(attr_name)
-      end
-
-      def maximum(attr_name)
-        all.maximum(attr_name)
       end
     end
   end
