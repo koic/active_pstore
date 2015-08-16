@@ -1,3 +1,8 @@
+## 0.4.6
+
+* [ActivePStore::Collection#count accepts args](https://github.com/koic/active_pstore/commit/e93af5956e42299a04684d6eaec1d47cfbfcd498)
+* [add like ActiveRecord::ModelSchema.table_name method](https://github.com/koic/active_pstore/commit/b3cf8b27cfb262d421f141852c79dd1854cd508a)
+
 ## 0.4.5
 
 * [add minimum method](https://github.com/koic/active_pstore/tree/9cb90a041fad051415739c3791e65fe23064bd45)
