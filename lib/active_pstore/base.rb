@@ -13,9 +13,9 @@ module ActivePStore
 
     class << self
       def all
-        use_connection do |connection|
+        use_connection {|connection|
           ActivePStore::Collection.new(connection[self.pstore_key] || [])
-        end
+        }
       end
     end
   end
