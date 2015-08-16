@@ -44,6 +44,12 @@ randy_rhoads.save
 saveメソッドの対象オブジェクトのクラス名がPStoreのキーになります。
 
 ```ruby
+Artist.table_name # => 'Artist'
+```
+
+例えばPStoreをもちいて保存されたartistオブジェクトを取得してみます。
+
+```ruby
 database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```

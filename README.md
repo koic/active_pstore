@@ -43,6 +43,12 @@ randy_rhoads.save
 database key is string of class name.
 
 ```ruby
+Artist.table_name # => 'Artist'
+```
+
+ex) Fetch stored artist objects by pure PStore.
+
+```ruby
 database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
