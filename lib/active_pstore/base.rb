@@ -1,5 +1,3 @@
-require 'forwardable'
-
 module ActivePStore
   class Base
     extend ActivePStore::ConnectionHandling
@@ -9,11 +7,9 @@ module ActivePStore
     extend ActivePStore::ModelSchema
     extend ActivePStore::QueryMethods
     extend ActivePStore::Querying
-    extend SingleForwardable
+    extend ActivePStore::Delegation
     include ActivePStore::Core
     include ActivePStore::Persistence
-
-    def_delegators :all, :ids, :count, :minimum, :maximum
 
     class << self
       def all
