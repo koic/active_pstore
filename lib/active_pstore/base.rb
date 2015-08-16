@@ -6,13 +6,12 @@ module ActivePStore
     extend ActivePStore::DynamicMatchers
     extend ActivePStore::FinderMethods
     extend ActivePStore::Inheritance
-    extend ActivePStore::Querying
-    extend ActivePStore::QueryMethods
     extend ActivePStore::ModelSchema
+    extend ActivePStore::QueryMethods
+    extend ActivePStore::Querying
+    extend SingleForwardable
     include ActivePStore::Core
     include ActivePStore::Persistence
-
-    extend SingleForwardable
 
     def_delegators :all, :ids, :count, :minimum, :maximum
 
