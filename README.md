@@ -12,22 +12,32 @@ This library has [Active Record](https://github.com/rails/rails/tree/master/acti
 
 ## SYNOPSIS
 
-### class definition and instantiate
+### specify data store path
 
 ```ruby
 require 'active_pstore'
 
+ActivePStore::Base.establish_connection(database: '/path/to/file')
+```
+
+### class definition
+
+```ruby
 class Artist < ActivePStore::Base
   attr_accessor :name
 end
+```
 
+### instantiate
+
+```ruby
 randy_rhoads = Artist.new(name: 'Randy Rhoads')
 ```
 
-### specify data store path
+or
 
 ```ruby
-Artist.establish_connection(database: '/path/to/file')
+randy_rhoads = Artist.build(name: 'Randy Rhoads')
 ```
 
 ### save

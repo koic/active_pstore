@@ -13,22 +13,32 @@
 
 ## SYNOPSIS
 
-### クラス定義とインスタンスの生成
+### データの保存先のファイルパス指定
 
 ```ruby
 require 'active_pstore'
 
+ActivePStore::Base.establish_connection(database: '/path/to/file')
+```
+
+### クラス定義
+
+```ruby
 class Artist < ActivePStore::Base
   attr_accessor :name
 end
+```
 
+### インスタンスの生成
+
+```ruby
 randy_rhoads = Artist.new(name: 'Randy Rhoads')
 ```
 
-### データの保存先のファイルパス指定
+もしくは
 
 ```ruby
-Artist.establish_connection(database: '/path/to/file')
+randy_rhoads = Artist.build(name: 'Randy Rhoads')
 ```
 
 ### インスタンスの保存
