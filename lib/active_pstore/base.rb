@@ -11,6 +11,16 @@ module ActivePStore
     include ActivePStore::Core
     include ActivePStore::Persistence
 
+    def initialize(attributes = {})
+      attributes.each do |attr, val|
+        if respond_to? "#{attr}=".to_sym
+          self.__send__("#{attr}=", val)
+        else
+          raise "Unknown method, '#{attr}='"
+        end
+      end
+    end
+
     class << self
       def all
         use_connection {|connection|
