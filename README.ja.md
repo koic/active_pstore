@@ -60,12 +60,16 @@ database = PStore.new('/path/to/file')
 database.transaction {|db| artist = db['Artist'] } # fetch instances of Artist class.
 ```
 
+### ID
+
 保存時に[SecureRandom.hex](http://docs.ruby-lang.org/ja/2.2.0/class/SecureRandom.html#S_HEX)の値を使ったActivePStore::Base#idが付与されます。
 
 ```ruby
-> randy_rhoads.id # => nil 
-> randy_rhoads.save
-> randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+randy_rhoads = Artist.new(name: 'Randy Rhoads')
+randy_rhoads.id # => nil
+
+randy_rhoads.save
+randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
 ```
 
 ### 検索系
