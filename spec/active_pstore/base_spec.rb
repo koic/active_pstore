@@ -1,6 +1,4 @@
 describe ActivePStore::Base do
-  include_context 'Rock stars on stage'
-
   class ArtistWithoutInitializeMethod < ActivePStore::Base
     attr_accessor :name, :associated_act, :instrument, :birth_date
   end
