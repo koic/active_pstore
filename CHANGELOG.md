@@ -1,3 +1,8 @@
+## 0.4.7
+
+* [add ActivePStore::Base.new(attr1: val1, attr2: val2...) form.](https://github.com/koic/active_pstore/commit/6d0ee36b4cb6314e359d377980dcd985ba9174e0)
+* [`alias build new` of ActivePStore::Base](https://github.com/koic/active_pstore/commit/29bceb58413a3d935e04b2ec26259f5b61043846)
+
 ## 0.4.6
 
 * [ActivePStore::Collection#count accepts args](https://github.com/koic/active_pstore/commit/e93af5956e42299a04684d6eaec1d47cfbfcd498)

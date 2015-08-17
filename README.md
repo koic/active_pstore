@@ -18,14 +18,10 @@ This library has [Active Record](https://github.com/rails/rails/tree/master/acti
 require 'active_pstore'
 
 class Artist < ActivePStore::Base
-  def initialize(name)
-    @name = name
-  end
-
-  attr_reader :name
+  attr_accessor :name
 end
 
-randy_rhoads = Artist.new('Randy Rhoads')
+randy_rhoads = Artist.new(name: 'Randy Rhoads')
 ```
 
 ### specify data store path
