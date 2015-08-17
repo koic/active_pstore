@@ -29,6 +29,12 @@ module ActivePStore
           ActivePStore::Collection.new(connection[self.pstore_key] || [])
         }
       end
+
+      def create(attributes = {})
+        build(attributes).tap do |obj|
+          obj.save
+        end
+      end
     end
   end
 end
