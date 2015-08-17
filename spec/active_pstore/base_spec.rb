@@ -17,6 +17,8 @@ describe ActivePStore::Base do
     it { expect(subject.associated_act).to eq 'Van Halen' }
     it { expect(subject.instrument).to eq 'guitar' }
     it { expect(subject.birth_date).to eq Date.new(1955, 1, 26) }
+
+    it { is_expected.to be_new_record }
   end
 
   describe '.new' do
