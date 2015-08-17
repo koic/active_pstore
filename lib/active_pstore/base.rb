@@ -22,6 +22,8 @@ module ActivePStore
     end
 
     class << self
+      alias build new
+
       def all
         use_connection {|connection|
           ActivePStore::Collection.new(connection[self.pstore_key] || [])
