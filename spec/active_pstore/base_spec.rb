@@ -14,6 +14,15 @@ describe ActivePStore::Base do
     }
   }
 
+  let(:block) {
+    ->(a) {
+      a.name = 'Edward Van Halen'
+      a.associated_act = 'Van Halen'
+      a.instrument = 'guitar'
+      a.birth_date = Date.new(1955, 1, 26)
+    }
+  }
+
   shared_examples_for 'instantiate ActivePStore model' do
     it { expect(subject.name).to eq 'Edward Van Halen' }
     it { expect(subject.associated_act).to eq 'Van Halen' }
@@ -22,19 +31,39 @@ describe ActivePStore::Base do
   end
 
   describe '.new' do
-    subject { ArtistWithoutInitializeMethod.new(attributes) }
+    context 'with attributes' do
+      subject { ArtistWithoutInitializeMethod.new(attributes) }
 
-    it_behaves_like 'instantiate ActivePStore model'
+      it_behaves_like 'instantiate ActivePStore model'
 
-    it { is_expected.to be_new_record }
+      it { is_expected.to be_new_record }
+    end
+
+    context 'with block' do
+      subject { ArtistWithoutInitializeMethod.new(&block) }
+
+      it_behaves_like 'instantiate ActivePStore model'
+
+      it { is_expected.to be_new_record }
+    end
   end
 
   describe '.build' do
-    subject { ArtistWithoutInitializeMethod.build(attributes) }
+    context 'with attributes' do
+      subject { ArtistWithoutInitializeMethod.build(attributes) }
 
-    it_behaves_like 'instantiate ActivePStore model'
+      it_behaves_like 'instantiate ActivePStore model'
 
-    it { is_expected.to be_new_record }
+      it { is_expected.to be_new_record }
+    end
+
+    context 'with block' do
+      subject { ArtistWithoutInitializeMethod.build(&block) }
+
+      it_behaves_like 'instantiate ActivePStore model'
+
+      it { is_expected.to be_new_record }
+    end
   end
 
   describe '.create' do

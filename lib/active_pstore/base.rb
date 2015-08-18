@@ -19,6 +19,8 @@ module ActivePStore
           raise "Unknown method, '#{attr}='"
         end
       end
+
+      yield self if block_given?
     end
 
     class << self
