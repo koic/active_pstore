@@ -67,12 +67,24 @@ describe ActivePStore::Base do
   end
 
   describe '.create' do
-    subject { ArtistWithoutInitializeMethod.create(attributes) }
+    context 'with attributes' do
+      subject { ArtistWithoutInitializeMethod.create(attributes) }
 
-    it_behaves_like 'instantiate ActivePStore model'
+      it_behaves_like 'instantiate ActivePStore model'
 
-    it { is_expected.not_to be_new_record }
+      it { is_expected.not_to be_new_record }
 
-    specify { subject.should eq(ArtistWithoutInitializeMethod.find(subject)) }
+      specify { subject.should eq(ArtistWithoutInitializeMethod.find(subject)) }
+    end
+
+    context 'with block' do
+      subject { ArtistWithoutInitializeMethod.create(&block) }
+
+      it_behaves_like 'instantiate ActivePStore model'
+
+      it { is_expected.not_to be_new_record }
+
+      specify { subject.should eq(ArtistWithoutInitializeMethod.find(subject)) }
+    end
   end
 end

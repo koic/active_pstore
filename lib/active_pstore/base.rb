@@ -32,8 +32,8 @@ module ActivePStore
         }
       end
 
-      def create(attributes = {})
-        build(attributes).tap do |obj|
+      def create(attributes = {}, &block)
+        build(attributes, &block).tap do |obj|
           obj.save
         end
       end
