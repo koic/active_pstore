@@ -37,6 +37,10 @@ module ActivePStore
           obj.save
         end
       end
+
+      def first_or_create(attributes = {}, &block)
+        first || create(attributes, &block)
+      end
     end
   end
 end

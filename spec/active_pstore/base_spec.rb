@@ -83,4 +83,26 @@ describe ActivePStore::Base do
       it { is_expected.to eq(Artist.find(subject)) }
     end
   end
+
+  describe '.first_or_create' do
+    subject { Artist.first_or_create(instrument: instrument) }
+
+    context 'exist artist' do
+      let(:instrument) { 'guitar' }
+
+      it { is_expected.to eq randy_rhoads }
+    end
+
+    context 'not exist artist' do
+      before { Artist.destroy_all }
+
+      let(:instrument) { 'drums' }
+
+      it { expect(subject.id).to eq subject.id }
+      it { expect(subject.name).to be_nil }
+      it { expect(subject.associated_act).to be_nil }
+      it { expect(subject.instrument).to eq instrument }
+      it { expect(subject.birth_date).to be_nil }
+    end
+  end
 end
