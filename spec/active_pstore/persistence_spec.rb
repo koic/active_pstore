@@ -2,7 +2,14 @@ describe ActivePStore::Persistence do
   include_context 'Rock stars on stage'
 
   describe '#new_record?' do
-    let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+    let(:edward_van_halen)  {
+      Artist.new(
+        name: 'Edward Van Halen',
+        associated_act: 'Van Halen',
+        instrument: 'guitar',
+        birth_date: Date.new(1955, 1, 26)
+      )
+    }
 
     subject { edward_van_halen.new_record? }
 
@@ -39,7 +46,14 @@ describe ActivePStore::Persistence do
       Artist.destroy_all
     end
 
-    let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+    let(:edward_van_halen) {
+      Artist.new(
+        name: 'Edward Van Halen',
+        associated_act: 'Van Halen',
+        instrument: 'guitar',
+        birth_date: Date.new(1955, 1, 26)
+      )
+    }
 
     describe 'return value' do
       subject { edward_van_halen.save }
@@ -119,7 +133,14 @@ describe ActivePStore::Persistence do
 
   describe 'default attribute' do
     describe 'id' do
-      let(:edward_van_halen)  { Artist.new('Edward Van Halen', 'Van Halen', 'guitar', Date.new(1955, 1, 26)) }
+      let(:edward_van_halen) {
+        Artist.new(
+          name: 'Edward Van Halen',
+          associated_act: 'Van Halen',
+          instrument: 'guitar',
+          birth_date: Date.new(1955, 1, 26)
+        )
+      }
 
       subject { edward_van_halen.id }
 

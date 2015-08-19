@@ -2,7 +2,14 @@ describe ActivePStore::Collection do
   include_context 'Rock stars on stage'
 
   describe 'ActivePStore::Collection#count' do
-    let(:birth_date_is_nil)  { Artist.new('Gary Moore', 'Gary Moore', 'guitar', nil) }
+    let(:birth_date_is_nil) {
+      Artist.new(
+        name: 'Gary Moore',
+        associated_act: 'Gary Moore',
+        instrument: 'guitar',
+        birth_date: nil
+      )
+    }
 
     before do
       birth_date_is_nil.save

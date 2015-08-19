@@ -4,13 +4,6 @@ CodeClimate::TestReporter.start
 require 'active_pstore'
 
 class Artist < ActivePStore::Base
-  def initialize(name, associated_act, instrument, birth_date)
-    @name = name
-    @associated_act = associated_act
-    @instrument = instrument
-    @birth_date = birth_date
-  end
-
   attr_accessor :name, :associated_act, :instrument, :birth_date
 end
 

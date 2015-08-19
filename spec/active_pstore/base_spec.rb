@@ -1,8 +1,4 @@
 describe ActivePStore::Base do
-  class ArtistWithoutInitializeMethod < ActivePStore::Base
-    attr_accessor :name, :associated_act, :instrument, :birth_date
-  end
-
   include_context 'Rock stars on stage'
 
   let(:attributes) {
@@ -32,7 +28,7 @@ describe ActivePStore::Base do
 
   describe '.new' do
     context 'with attributes' do
-      subject { ArtistWithoutInitializeMethod.new(attributes) }
+      subject { Artist.new(attributes) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
@@ -40,7 +36,7 @@ describe ActivePStore::Base do
     end
 
     context 'with block' do
-      subject { ArtistWithoutInitializeMethod.new(&block) }
+      subject { Artist.new(&block) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
@@ -50,7 +46,7 @@ describe ActivePStore::Base do
 
   describe '.build' do
     context 'with attributes' do
-      subject { ArtistWithoutInitializeMethod.build(attributes) }
+      subject { Artist.build(attributes) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
@@ -58,7 +54,7 @@ describe ActivePStore::Base do
     end
 
     context 'with block' do
-      subject { ArtistWithoutInitializeMethod.build(&block) }
+      subject { Artist.build(&block) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
@@ -68,23 +64,23 @@ describe ActivePStore::Base do
 
   describe '.create' do
     context 'with attributes' do
-      subject { ArtistWithoutInitializeMethod.create(attributes) }
+      subject { Artist.create(attributes) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
       it { is_expected.not_to be_new_record }
 
-      specify { subject.should eq(ArtistWithoutInitializeMethod.find(subject)) }
+      specify { subject.should eq(Artist.find(subject)) }
     end
 
     context 'with block' do
-      subject { ArtistWithoutInitializeMethod.create(&block) }
+      subject { Artist.create(&block) }
 
       it_behaves_like 'instantiate ActivePStore model'
 
       it { is_expected.not_to be_new_record }
 
-      specify { subject.should eq(ArtistWithoutInitializeMethod.find(subject)) }
+      specify { subject.should eq(Artist.find(subject)) }
     end
   end
 end
