@@ -70,7 +70,7 @@ describe ActivePStore::Base do
 
       it { is_expected.not_to be_new_record }
 
-      specify { subject.should eq(Artist.find(subject)) }
+      it { is_expected.to eq(Artist.find(subject)) }
     end
 
     context 'with block' do
@@ -80,7 +80,7 @@ describe ActivePStore::Base do
 
       it { is_expected.not_to be_new_record }
 
-      specify { subject.should eq(Artist.find(subject)) }
+      it { is_expected.to eq(Artist.find(subject)) }
     end
   end
 end
