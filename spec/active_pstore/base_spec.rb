@@ -64,13 +64,26 @@ describe ActivePStore::Base do
 
   describe '.create' do
     context 'with attributes' do
-      subject { Artist.create(attributes) }
+      context 'attributes for single object' do
+        subject { Artist.create(attributes) }
 
-      it_behaves_like 'instantiate ActivePStore model'
+        it_behaves_like 'instantiate ActivePStore model'
 
-      it { is_expected.not_to be_new_record }
+        it { is_expected.not_to be_new_record }
 
-      it { is_expected.to eq(Artist.find(subject)) }
+        it { is_expected.to eq(Artist.find(subject)) }
+      end
+
+      context 'attributes for multiple object' do
+        subject { Artist.create([{name: 'Ritchie Blackmore'}, {name: 'Jimi Hendrix'}]) }
+
+        it { expect(subject.count).to eq 2 }
+
+        it { expect(subject[0].name).to eq 'Ritchie Blackmore' }
+        it { expect(subject[0]).not_to be_new_record }
+        it { expect(subject[1].name).to eq 'Jimi Hendrix' }
+        it { expect(subject[1]).not_to be_new_record }
+      end
     end
 
     context 'with block' do

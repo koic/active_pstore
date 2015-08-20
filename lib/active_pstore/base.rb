@@ -33,8 +33,12 @@ module ActivePStore
       end
 
       def create(attributes = {}, &block)
-        build(attributes, &block).tap do |obj|
-          obj.save
+        if attributes.is_a?(Array)
+          attributes.map {|a| create(a, &block) }
+        else
+          build(attributes, &block).tap do |obj|
+            obj.save
+          end
         end
       end
 
