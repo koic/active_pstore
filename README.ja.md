@@ -40,7 +40,7 @@ randy_rhoads = Artist.new(name: 'Randy Rhoads')
 ```ruby
 randy_rhoads = Artist.new {|a|
   a.name = 'Randy Rhoads'
-)
+}
 ```
 
 `ActivePStore::Base.new` メソッドと別名として `ActivePStore::Base.build` を使うこともできます。

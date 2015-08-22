@@ -39,7 +39,7 @@ or
 ```ruby
 randy_rhoads = Artist.new {|a|
   a.name = 'Randy Rhoads'
-)
+}
 ```
 
 `ActivePStore::Base.build` method the same as `ActivePStore::Base.new` method.
