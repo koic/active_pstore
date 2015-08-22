@@ -1,15 +1,9 @@
+require 'forwardable'
+
 module ActivePStore
   module Querying
-    def update_all(updates)
-      all.update_all(updates)
-    end
+    extend Forwardable
 
-    def destroy_all
-      all.destroy_all
-    end
-
-    def count
-      all.count
-    end
+    def_delegators :all, :update_all, :destroy_all, :count
   end
 end
