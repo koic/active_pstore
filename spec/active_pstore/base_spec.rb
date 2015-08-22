@@ -42,6 +42,12 @@ describe ActivePStore::Base do
 
       it { is_expected.to be_new_record }
     end
+
+    context 'no method error' do
+      subject { Artist.new(undefined_method: 'value') }
+
+      it { expect { subject }.to raise_error(StandardError, "undefined method `undefined_method='") }
+    end
   end
 
   describe '.build' do

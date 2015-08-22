@@ -16,7 +16,7 @@ module ActivePStore
         if respond_to? "#{attr}=".to_sym
           self.__send__("#{attr}=", val)
         else
-          raise "Unknown method, '#{attr}='"
+          raise "undefined method `#{attr}='"
         end
       end
 
