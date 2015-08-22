@@ -1,3 +1,11 @@
+## 0.4.8
+
+* [add ActivePStore::Base.save method](https://github.com/koic/active_pstore/commit/5dd14cbea1b06a813ab29a1a1eaa47c60896b99f)
+* [ActivePStore::Base.new and build and create methods accept block assignments](https://github.com/koic/active_pstore/commit/af52d7ec8e29b14f7f42b41e3cb05ef65e081469)
+* [ActivePStore::Base.create method accepts block assignments](https://github.com/koic/active_pstore/commit/032b5b6cd649f1e243ccd8686fd6868c5a2be554)
+* [add ActivePStore::Base.first_or_create method](https://github.com/koic/active_pstore/commit/b7275773e0ef0e665307a48b498413a211b6062c)
+* [ActivePStore::Base.create can create an Array of new objects](https://github.com/koic/active_pstore/commit/64e4160f9054e6028cfaae3534e7d755d9f686ab)
+
 ## 0.4.7
 
 * [add ActivePStore::Base.new(attr1: val1, attr2: val2...) form.](https://github.com/koic/active_pstore/commit/6d0ee36b4cb6314e359d377980dcd985ba9174e0)

@@ -35,11 +35,15 @@ end
 randy_rhoads = Artist.new(name: 'Randy Rhoads')
 ```
 
-もしくは
+や
 
 ```ruby
-randy_rhoads = Artist.build(name: 'Randy Rhoads')
+randy_rhoads = Artist.new {|a|
+  a.name = 'Randy Rhoads'
+)
 ```
+
+`ActivePStore::Base.new` メソッドと別名として `ActivePStore::Base.build` を使うこともできます。
 
 ### インスタンスの保存
 
@@ -70,6 +74,20 @@ randy_rhoads.id # => nil
 
 randy_rhoads.save
 randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+```
+
+### インスタンスの生成時に保存
+
+```ruby
+randy_rhoads = Artist.create(name: 'Randy Rhoads')
+```
+
+や
+
+```ruby
+randy_rhoads = Artist.create {|a|
+  a.name = 'Randy Rhoads'
+}
 ```
 
 ### 検索系

@@ -37,8 +37,12 @@ randy_rhoads = Artist.new(name: 'Randy Rhoads')
 or
 
 ```ruby
-randy_rhoads = Artist.build(name: 'Randy Rhoads')
+randy_rhoads = Artist.new {|a|
+  a.name = 'Randy Rhoads'
+)
 ```
+
+`ActivePStore::Base.build` method the same as `ActivePStore::Base.new` method.
 
 ### save
 
@@ -69,6 +73,20 @@ randy_rhoads.id # => nil
 
 randy_rhoads.save
 randy_rhoads.id # => "0b84ece5d5be3bce3ee2101c1c4f6fda"
+```
+
+### instantiate with save
+
+```ruby
+randy_rhoads = Artist.create(name: 'Randy Rhoads')
+```
+
+or
+
+```ruby
+randy_rhoads = Artist.create {|a|
+  a.name = 'Randy Rhoads'
+}
 ```
 
 ### find series
