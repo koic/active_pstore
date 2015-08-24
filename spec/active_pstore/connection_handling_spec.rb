@@ -3,7 +3,7 @@ describe ActivePStore::ConnectionHandling do
 
   describe '.connection_config' do
     let(:connection_config) {
-      {database: '/tmp/active_pstore_test'}
+      {database: test_database_dir}
     }
 
     subject { Artist.connection_config }
@@ -15,7 +15,7 @@ describe ActivePStore::ConnectionHandling do
   describe '.establish_connection' do
     context 'database configuration NOT specified' do
       specify {
-        expect { Artist.establish_connection('/path/to/file') }.to raise_error(ArgumentError)
+        expect { Artist.establish_connection(test_database_dir) }.to raise_error(ArgumentError)
       }
     end
 
