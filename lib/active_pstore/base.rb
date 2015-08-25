@@ -1,3 +1,5 @@
+require 'active_model'
+
 module ActivePStore
   class Base
     extend ActivePStore::ConnectionHandling
@@ -8,6 +10,7 @@ module ActivePStore
     extend ActivePStore::QueryMethods
     extend ActivePStore::Querying
     extend ActivePStore::Delegation
+    include ActiveModel::Model
     include ActivePStore::Core
     include ActivePStore::Persistence
 
