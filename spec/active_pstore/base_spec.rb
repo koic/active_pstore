@@ -124,4 +124,22 @@ describe ActivePStore::Base do
       it { expect(subject.birth_date).to be_nil }
     end
   end
+
+  describe '#valid?' do
+    let(:artist) { Artist.new(name: name) }
+
+    subject { artist.valid? }
+
+    context 'valid' do
+      let(:name) { 'foo' }
+
+      it { is_expected.to be true }
+    end
+
+    context 'invalid' do
+      let(:name) { '' }
+
+      it { is_expected.to be false }
+    end
+  end
 end

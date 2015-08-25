@@ -1,3 +1,6 @@
+require 'rspec/expectations'
+require 'rspec/mocks'
+
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
@@ -5,6 +8,8 @@ require 'active_pstore'
 
 class Artist < ActivePStore::Base
   attr_accessor :name, :associated_act, :instrument, :birth_date
+
+  validates_presence_of :name
 end
 
 Dir['./spec/support/**/*.rb'].each {|f| require f}
