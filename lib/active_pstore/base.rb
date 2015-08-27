@@ -48,6 +48,10 @@ module ActivePStore
       def first_or_create(attributes = {}, &block)
         first || create(attributes, &block)
       end
+
+      def find_or_create_by(attributes, &block)
+        find_by(attributes) || create(attributes, &block)
+      end
     end
   end
 end

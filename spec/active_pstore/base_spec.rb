@@ -103,9 +103,7 @@ describe ActivePStore::Base do
     end
   end
 
-  describe '.first_or_create' do
-    subject { Artist.first_or_create(instrument: instrument) }
-
+  shared_examples_for 'find_or_create series' do
     context 'exist artist' do
       let(:instrument) { 'guitar' }
 
@@ -123,6 +121,18 @@ describe ActivePStore::Base do
       it { expect(subject.instrument).to eq instrument }
       it { expect(subject.birth_date).to be_nil }
     end
+  end
+
+  describe '.first_or_create' do
+    subject { Artist.first_or_create(instrument: instrument) }
+
+    it_behaves_like 'find_or_create series'
+  end
+
+  describe '.find_or_create_by' do
+    subject { Artist.find_or_create_by(instrument: instrument) }
+
+    it_behaves_like 'find_or_create series'
   end
 
   describe '#valid?' do
