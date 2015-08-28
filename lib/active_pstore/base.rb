@@ -11,6 +11,7 @@ module ActivePStore
     extend ActivePStore::Querying
     extend ActivePStore::Delegation
     include ActiveModel::Model
+    include ActivePStore::AttributeMethods
     include ActivePStore::Core
     include ActivePStore::Persistence
 
