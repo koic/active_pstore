@@ -35,6 +35,12 @@ describe ActivePStore::Base do
       it { is_expected.to be_new_record }
     end
 
+    context 'nil' do
+      subject { Artist.new(nil) }
+
+      it { is_expected.to be_new_record }
+    end
+
     context 'with block' do
       subject { Artist.new(&block) }
 

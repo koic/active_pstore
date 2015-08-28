@@ -14,12 +14,14 @@ module ActivePStore
     include ActivePStore::Core
     include ActivePStore::Persistence
 
-    def initialize(attributes = {})
-      attributes.each do |attr, val|
-        if respond_to? "#{attr}=".to_sym
-          self.__send__("#{attr}=", val)
-        else
-          raise "undefined method `#{attr}='"
+    def initialize(attributes = nil)
+      if attributes.present?
+        attributes.each do |attr, val|
+          if respond_to? "#{attr}=".to_sym
+            self.__send__("#{attr}=", val)
+          else
+            raise "undefined method `#{attr}='"
+          end
         end
       end
 
@@ -35,7 +37,7 @@ module ActivePStore
         }
       end
 
-      def create(attributes = {}, &block)
+      def create(attributes = nil, &block)
         if attributes.is_a?(Array)
           attributes.map {|attr| create(attr, &block) }
         else
@@ -45,7 +47,7 @@ module ActivePStore
         end
       end
 
-      def first_or_create(attributes = {}, &block)
+      def first_or_create(attributes = nil, &block)
         first || create(attributes, &block)
       end
 
