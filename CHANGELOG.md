@@ -1,3 +1,10 @@
+## 0.4.9
+
+* [ActivePStore::ConnectionHandling#connection_config](https://github.com/koic/active_pstore/commit/833367cdb60d787c176b1e2459f768677e49ea64)
+* [add dependency Active Model](https://github.com/koic/active_pstore/commit/b0612194237305da9175effe380ae71c24b49f85)
+* [add ActivePStore::Base.find_or_create_by method](https://github.com/koic/active_pstore/commit/bf3823b4b46a64b4c3d449a8277c59abd3f15e92)
+* [add ActivePStore::Base#[] method](https://github.com/koic/active_pstore/commit/68b3b1388665817dbccf2a434bd234821e145bc2)
+
 ## 0.4.8
 
 * [add ActivePStore::Base.save method](https://github.com/koic/active_pstore/commit/5dd14cbea1b06a813ab29a1a1eaa47c60896b99f)

@@ -110,7 +110,7 @@ Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 
 ## REQUIREMENTS
 
-* no requirements
+* [Active Model](https://github.com/rails/rails/tree/master/activemodel)
 
 ## INSTALL
 

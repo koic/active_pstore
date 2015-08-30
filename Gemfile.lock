@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active_pstore (0.4.8)
+    active_pstore (0.4.9)
       activemodel
 
 GEM

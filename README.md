@@ -109,7 +109,7 @@ see [spec codes](https://github.com/koic/active_pstore/tree/master/spec) for mor
 
 ## REQUIREMENTS
 
-no requirements
+* [Active Model](https://github.com/rails/rails/tree/master/activemodel)
 
 ## INSTALL
 
