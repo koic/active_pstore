@@ -13,6 +13,7 @@ module ActivePStore
     include ActiveModel::Model
     include ActivePStore::AttributeMethods
     include ActivePStore::Core
+    include ActivePStore::Integration
     include ActivePStore::Persistence
 
     def initialize(attributes = nil)
