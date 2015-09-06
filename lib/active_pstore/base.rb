@@ -56,6 +56,10 @@ module ActivePStore
       def find_or_create_by(attributes, &block)
         find_by(attributes) || create(attributes, &block)
       end
+
+      def find_or_initialize_by(attributes, &block)
+        find_by(attributes) || new(attributes, &block)
+      end
     end
   end
 end

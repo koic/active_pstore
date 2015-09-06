@@ -141,6 +141,16 @@ describe ActivePStore::Base do
     it_behaves_like 'find_or_create series'
   end
 
+  describe '.find_or_initialize_by' do
+    let(:instrument) { 'drums' }
+
+    subject { Artist.find_or_initialize_by(instrument: instrument) }
+
+    it_behaves_like 'find_or_create series'
+
+    it { is_expected.to be_new_record }
+  end
+
   describe '#valid?' do
     let(:artist) { Artist.new(name: name) }
 
