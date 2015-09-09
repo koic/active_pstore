@@ -1,3 +1,10 @@
+## 0.4.10
+
+* [add ActivePStore::Base#[]= method](https://github.com/koic/active_pstore/commit/8c916c70133c651d2fee090ce5db67353907bbc1)
+* [introduce for Rails Integraion, ActivePStore::Integration](https://github.com/koic/active_pstore/commit/fe078192a7d6f95dac98de158d55e373af6a69f8)
+* [add ActivePStore::Base#find_or_initialize_by method](https://github.com/koic/active_pstore/commit/fdf94425997eab21a40c3a535dc61aa1f42c54fa)
+* [add ActivePStore::Base#persisted? method.](https://github.com/koic/active_pstore/commit/f340a7e1fef040590726989110bed80acd0d5914)
+
 ## 0.4.9
 
 * [ActivePStore::ConnectionHandling#connection_config](https://github.com/koic/active_pstore/commit/833367cdb60d787c176b1e2459f768677e49ea64)
