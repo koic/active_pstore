@@ -16,6 +16,10 @@ module ActivePStore
       @id.nil?
     end
 
+    def persisted?
+      !new_record?
+    end
+
     def save
       ActivePStore::Base.use_connection do |connection|
         if new_record?

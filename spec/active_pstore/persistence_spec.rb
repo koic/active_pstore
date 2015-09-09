@@ -26,6 +26,31 @@ describe ActivePStore::Persistence do
     end
   end
 
+  describe '#persisted?' do
+    let(:edward_van_halen)  {
+      Artist.new(
+        name: 'Edward Van Halen',
+        associated_act: 'Van Halen',
+        instrument: 'guitar',
+        birth_date: Date.new(1955, 1, 26)
+      )
+    }
+
+    subject { edward_van_halen.persisted? }
+
+    context 'new record' do
+      it { is_expected.to be false }
+    end
+
+    context 'exists record' do
+      before do
+        edward_van_halen.save
+      end
+
+      it { is_expected.to be true }
+    end
+  end
+
   describe '#destroy' do
     describe 'return value' do
       subject { randy_rhoads.destroy }
