@@ -1,0 +1,7 @@
+<% module_namespacing do -%>
+class <%= class_name %> < ActivePStore::Base
+<% attributes.reject {|attr| attr.reference?}.each do |attribute| -%>
+  attr_accessor :<%= attribute.name %>
+<% end -%>
+end
+<% end -%>
