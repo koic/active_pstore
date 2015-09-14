@@ -16,3 +16,7 @@ require 'active_pstore/query_methods'
 require 'active_pstore/querying'
 require 'active_pstore/base'
 require 'active_pstore/errors'
+
+if defined?(Rails)
+  require 'active_pstore/railtie'
+end
