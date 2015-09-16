@@ -107,6 +107,37 @@ Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 
 see [spec codes](https://github.com/koic/active_pstore/tree/master/spec) for more information.
 
+## Integration with Rails
+
+### Generate config file
+
+Execute these lines to your Rails application directory:
+
+```
+bundle exec rails g active_pstore:config
+```
+
+And then create config/active_pstore.yml.
+
+### Generate model file
+
+Execute these lines to your Rails application directory:
+
+```
+bundle exec rails g active_pstore:model artist name associated_act instrument birth_date
+```
+
+And then create app/models/artist.rb
+
+```ruby
+class Artist < ActivePStore::Base
+  attr_accessor :name
+  attr_accessor :associated_act
+  attr_accessor :instrument
+  attr_accessor :birth_date
+end
+```
+
 ## REQUIREMENTS
 
 * [Active Model](https://github.com/rails/rails/tree/master/activemodel)

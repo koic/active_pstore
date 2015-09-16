@@ -1,3 +1,9 @@
+## 0.5.0 Integration with Rails
+
+* [Integration with Rails](https://github.com/koic/active_pstore/commit/f7ad2441b569b0faf63e2338834fa430151e57af)
+* [add ModelGenerator](https://github.com/koic/active_pstore/commit/b47a55dfc1bd7c508b43fb7d0f69a9f011e07c98)
+* [add ConfigGenerator](https://github.com/koic/active_pstore/commit/5b6a42c0d658809f21a5f6d10ff095dbb32576c9)
+
 ## 0.4.10
 
 * [add ActivePStore::Base#[]= method](https://github.com/koic/active_pstore/commit/8c916c70133c651d2fee090ce5db67353907bbc1)
