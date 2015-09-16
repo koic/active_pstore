@@ -111,17 +111,17 @@ see [spec codes](https://github.com/koic/active_pstore/tree/master/spec) for mor
 
 ### Generate config file
 
-Execute these lines to your Rails application directory:
+Execute these lines in your Rails application directory:
 
 ```
 bundle exec rails g active_pstore:config
 ```
 
-And then create config/active_pstore.yml.
+And then create config/active_pstore.yml
 
 ### Generate model file
 
-Execute these lines to your Rails application directory:
+Execute these lines in your Rails application directory:
 
 ```
 bundle exec rails g active_pstore:model artist name associated_act instrument birth_date
