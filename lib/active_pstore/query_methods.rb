@@ -9,6 +9,8 @@ module ActivePStore
         ret = ret.select {|obj|
           if value.is_a? Range
             value.include?(obj.__send__(key))
+          elsif value.is_a? Array
+            value.include?(obj.__send__(key))
           else
             obj.__send__(key) == value
           end

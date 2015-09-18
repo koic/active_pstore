@@ -19,6 +19,13 @@ describe ActivePStore::QueryMethods do
         it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, zakk_wylde])) }
       end
 
+      context 'array' do
+        let(:conditions) { {name: ['Randy Rhoads', 'Don Airey']} }
+
+        it { expect(subject[0]).to eq randy_rhoads }
+        it { expect(subject[1]).to eq don_airey }
+      end
+
       context 'date between' do
         let(:conditions) { {birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6)} }
 
