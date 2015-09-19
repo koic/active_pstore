@@ -109,6 +109,8 @@ see [spec codes](https://github.com/koic/active_pstore/tree/master/spec) for mor
 
 ## Integration with Rails
 
+This library has following generators.
+
 ### Generate config file
 
 Execute these lines in your Rails application directory:
@@ -118,6 +120,13 @@ bundle exec rails g active_pstore:config
 ```
 
 And then create config/active_pstore.yml
+
+Using the config/database.yml file you can specify all the information needed to access your pstore database:
+
+```
+development:
+  database: db/active_pstore_development.yml
+```
 
 ### Generate model file
 

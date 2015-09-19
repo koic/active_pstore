@@ -110,6 +110,8 @@ Artist.where(birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6))
 
 ## Integration with Rails
 
+Active PStore では以下のジェネレータを用意しています。
+
 ### Generate config file
 
 以下の行をRailsアプリケーションで実行してください。
@@ -119,6 +121,13 @@ bundle exec rails g active_pstore:config
 ```
 
 config/active_pstore.yml が生成されます。
+
+config/database.yml をもちいて Active PStore が pstore を使った保存先の情報を指定します。
+
+```
+development:
+  database: db/active_pstore_development.yml
+```
 
 ### Generate model file
 
