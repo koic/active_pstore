@@ -1,15 +1,13 @@
 module ActivePStore
   module FinderMethods
     def find(*ids)
-      ret = _find(*ids)
-
-      if ids.size == 1
-        raise ActivePStore::RecordNotFound, "Couldn't find #{self} with 'id'=#{ids.first}" if ret.nil?
-      else
-        raise ActivePStore::RecordNotFound, "Couldn't find all #{self} with 'id': (#{ids.join(', ')}) (found #{ret.size} results, but was looking for #{ids.size})" unless ret.size == ids.size
+      _find(*ids).tap do |ret|
+        if ids.size == 1
+          raise ActivePStore::RecordNotFound, "Couldn't find #{self} with 'id'=#{ids.first}" if ret.nil?
+        else
+          raise ActivePStore::RecordNotFound, "Couldn't find all #{self} with 'id': (#{ids.join(', ')}) (found #{ret.size} results, but was looking for #{ids.size})" unless ret.size == ids.size
+        end
       end
-
-      ret
     end
 
     def find_by(conditions = {})
