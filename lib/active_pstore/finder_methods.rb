@@ -1,6 +1,8 @@
 module ActivePStore
   module FinderMethods
     def find(*ids)
+      ids = ids.map {|id| id.is_a?(ActivePStore::Base) ? id.id : id }
+
       _find(*ids).tap do |ret|
         if ids.size == 1
           raise ActivePStore::RecordNotFound, "Couldn't find #{self} with 'id'=#{ids.first}" if ret.nil?
@@ -35,7 +37,6 @@ module ActivePStore
     def _find(*ids)
       if ids.size == 1
         id = ids.first
-        id = id.is_a?(ActivePStore::Base) ? id.id : id
 
         all.find {|obj| obj.id == id }
       else
