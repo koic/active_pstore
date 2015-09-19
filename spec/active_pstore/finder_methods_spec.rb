@@ -2,7 +2,7 @@ describe ActivePStore::FinderMethods do
   include_context 'Rock stars on stage'
 
   describe '.find' do
-    subject { Artist.find(id) }
+    subject { Artist.find(ids) }
 
     shared_examples_for 'fishing with a pole' do
       context 'exists data' do
@@ -11,22 +11,37 @@ describe ActivePStore::FinderMethods do
       end
 
       context 'not found' do
-        let(:id) { '9' * 32 }
+        let(:ids) { '9' * 32 }
 
         before do
           Artist.destroy_all
         end
 
-        it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with 'id'=#{id}") }
+        it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find Artist with 'id'=#{ids}") }
       end
     end
 
     it_behaves_like 'fishing with a pole' do
-      let(:id) { randy_rhoads.id }
+      let(:ids) { randy_rhoads.id }
     end
 
     it_behaves_like 'fishing with a pole' do
-      let(:id) { randy_rhoads }
+      let(:ids) { randy_rhoads }
+    end
+
+    context 'specify multi id' do
+      context 'exists data' do
+        subject { Artist.find(randy_rhoads.id, michael_amott.id) }
+
+        it { expect(subject[0].name).to eq('Randy Rhoads') }
+        it { expect(subject[1].name).to eq('Michael Amott') }
+      end
+
+      context 'not found' do
+        subject { Artist.find(randy_rhoads.id, 'record_not_found') }
+
+        it { expect { subject }.to raise_error(ActivePStore::RecordNotFound, "Couldn't find all Artist with 'id': (#{randy_rhoads.id}, record_not_found) (found 1 results, but was looking for 2)") }
+      end
     end
   end
 
