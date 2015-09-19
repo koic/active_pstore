@@ -1,22 +1,15 @@
 module ActivePStore
   module FinderMethods
     def find(*ids)
+      ret = _find(*ids)
+
       if ids.size == 1
-        id = ids.first
-        id = id.is_a?(ActivePStore::Base) ? id.id : id
-
-        all.find {|obj| obj.id == id } || (raise ActivePStore::RecordNotFound, "Couldn't find #{self} with 'id'=#{id}")
+        raise ActivePStore::RecordNotFound, "Couldn't find #{self} with 'id'=#{ids.first}" if ret.nil?
       else
-        ret = ids.each_with_object([]) {|id, ret|
-          id = id.is_a?(ActivePStore::Base) ? ids.id : id
-
-          ret << all.find {|obj| obj.id == id }
-        }.compact
-
         raise ActivePStore::RecordNotFound, "Couldn't find all #{self} with 'id': (#{ids.join(', ')}) (found #{ret.size} results, but was looking for #{ids.size})" unless ret.size == ids.size
-
-        ret
       end
+
+      ret
     end
 
     def find_by(conditions = {})
@@ -37,6 +30,21 @@ module ActivePStore
 
     def take(limit = nil)
       limit ? all.take(limit) : first
+    end
+
+    private
+
+    def _find(*ids)
+      if ids.size == 1
+        id = ids.first
+        id = id.is_a?(ActivePStore::Base) ? id.id : id
+
+        all.find {|obj| obj.id == id }
+      else
+        ids.each_with_object([]) {|id, ret|
+          ret << _find(id)
+        }.compact
+      end
     end
   end
 end
