@@ -1,3 +1,5 @@
+require 'rails/generators/active_pstore/config/config_generator'
+
 describe ActivePstore::Generators::ConfigGenerator, type: :generator do
   destination File.expand_path('../../../../../../tmp', __FILE__)
 
