@@ -10,11 +10,11 @@ describe ActivePStore::Calculations do
   end
 
   describe 'ActivePStore::Collection#ids' do
-    context 'only guitarists' do
-      subject { Artist.where(instrument: 'guitar').ids }
+    let(:guitarists) { Artist.where(instrument: 'guitar') }
 
-      it { is_expected.to eq [randy_rhoads, michael_amott, zakk_wylde].map(&:id) }
-    end
+    subject { guitarists.ids }
+
+    it { is_expected.to eq [randy_rhoads, michael_amott, zakk_wylde].map(&:id) }
   end
 
   describe 'ActivePStore::Collection#minimum' do
