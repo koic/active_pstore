@@ -10,7 +10,7 @@ describe ActivePstore::Generators::ConfigGenerator, type: :generator do
     run_generator
   end
 
-  it 'creates a active_pstore config' do
+  specify 'creates a active_pstore config' do
     assert_file 'config/active_pstore.yml', config_file
   end
 end

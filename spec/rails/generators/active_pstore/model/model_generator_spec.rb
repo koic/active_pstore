@@ -19,7 +19,7 @@ end
     run_generator
   end
 
-  it 'creates a active_pstore model' do
+  specify 'creates a active_pstore model' do
     assert_file 'app/models/artist.rb', generated_code
   end
 end
