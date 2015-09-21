@@ -29,5 +29,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency('activemodel')
   s.add_development_dependency('codeclimate-test-reporter')
+  s.add_development_dependency('generator_spec')
+  s.add_development_dependency('railties')
   s.add_development_dependency('rspec', '>= 3.0.0')
 end

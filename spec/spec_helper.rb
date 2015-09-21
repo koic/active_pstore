@@ -5,6 +5,9 @@ require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 require 'active_pstore'
+require 'generator_spec'
+require 'rails/generators'
+require 'rails/generators/active_pstore/config/config_generator'
 
 class Artist < ActivePStore::Base
   attr_accessor :name, :associated_act, :instrument, :birth_date
