@@ -1,3 +1,8 @@
+## 0.5.1
+
+* [ActivePStore::Base.where method accepts Array object.](https://github.com/koic/active_pstore/commit/b73df47313b44a69892b13b460e6b5b12dae42d7)
+* [change interface, from ActivePStore::Base.find(id) to find(*ids).](https://github.com/koic/active_pstore/commit/8df26ab1de5732ca311bed10bda70a1b19bb7369)
+
 ## 0.5.0 Integration with Rails
 
 * [Integration with Rails](https://github.com/koic/active_pstore/commit/f7ad2441b569b0faf63e2338834fa430151e57af)
