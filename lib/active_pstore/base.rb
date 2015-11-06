@@ -20,7 +20,7 @@ module ActivePStore
       if attributes.present?
         attributes.each do |attr, val|
           if respond_to? "#{attr}=".to_sym
-            self.__send__("#{attr}=", val)
+            self.public_send("#{attr}=", val)
           else
             raise "undefined method `#{attr}='"
           end

@@ -21,7 +21,7 @@ module ActivePStore
 
       if match
         match.define
-        send(name, *arguments, &block)
+        public_send(name, *arguments, &block)
       else
         super
       end

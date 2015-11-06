@@ -9,9 +9,9 @@ module ActivePStore
         ret = ret.select {|obj|
           case value
           when Array, Range
-            value.include?(obj.__send__(key))
+            value.include?(obj.public_send(key))
           else
-            obj.__send__(key) == value
+            obj.public_send(key) == value
           end
         }
       end

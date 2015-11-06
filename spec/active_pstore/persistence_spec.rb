@@ -141,7 +141,7 @@ describe ActivePStore::Persistence do
 
   %w(update update_attributes).each do |method_name|
     describe "##{method_name}" do
-      subject { randy_rhoads.__send__(method_name, associated_act: 'The Super Band', instrument: 'vocal') }
+      subject { randy_rhoads.public_send(method_name, associated_act: 'The Super Band', instrument: 'vocal') }
 
       it { is_expected.to be true }
       it {

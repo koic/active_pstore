@@ -33,7 +33,7 @@ module ActivePStore
     end
 
     def method_missing(method_name, *args, &block)
-      @objects.__send__(method_name, *args, &block)
+      @objects.public_send(method_name, *args, &block)
     end
 
     def ==(comparison_object)

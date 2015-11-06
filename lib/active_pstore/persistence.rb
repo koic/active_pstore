@@ -39,14 +39,14 @@ module ActivePStore
     end
 
     def update_attribute(attr_name, attr_value)
-      self.__send__("#{attr_name}=", attr_value)
+      self.public_send("#{attr_name}=", attr_value)
 
       save
     end
 
     def update(attrs)
       attrs.each do |attr_name, attr_value|
-        self.__send__("#{attr_name}=", attr_value)
+        self.public_send("#{attr_name}=", attr_value)
       end
 
       save
