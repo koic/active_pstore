@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.required_ruby_version = '>= 2.0.0'
-  s.license = 'MIT'
 
   s.add_dependency('activemodel')
   s.add_development_dependency('codeclimate-test-reporter')
