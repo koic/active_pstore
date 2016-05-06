@@ -1,3 +1,7 @@
+## 0.5.2
+
+* [Add ActivePStore::Base.where.not(conditions) method](https://github.com/koic/active_pstore/commit/8d524575ab62be027ce22980a184f19dc82c842c)
+
 ## 0.5.1
 
 * [ActivePStore::Base.where method accepts Array object.](https://github.com/koic/active_pstore/commit/b73df47313b44a69892b13b460e6b5b12dae42d7)
