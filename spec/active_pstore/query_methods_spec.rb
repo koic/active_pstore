@@ -44,6 +44,47 @@ describe ActivePStore::QueryMethods do
     end
   end
 
+  describe '.where.not' do
+    subject { Artist.where.not(conditions) }
+
+    context 'exists data' do
+      context 'have 1 condition' do
+        let(:conditions) { {associated_act: 'Arch Enemy'} }
+
+        it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, don_airey, zakk_wylde])) }
+      end
+
+      context 'have 2 conditions' do
+        let(:conditions) { {associated_act: 'Arch Enemy', instrument: 'keyboard'} }
+
+        it { is_expected.to match(ActivePStore::Collection.new([randy_rhoads, zakk_wylde])) }
+      end
+
+      context 'array' do
+        let(:conditions) { {name: ['Michael Amott', 'Zakk Wylde']} }
+
+        it { expect(subject[0]).to eq randy_rhoads }
+        it { expect(subject[1]).to eq don_airey }
+      end
+
+      context 'date between' do
+        let(:conditions) { {birth_date: Date.new(1948, 12, 3)..Date.new(1956, 12, 6)} }
+
+        it { is_expected.to match(ActivePStore::Collection.new([don_airey, michael_amott])) }
+      end
+    end
+
+    context 'not found' do
+      let(:conditions) { {} }
+
+      before do
+        Artist.destroy_all
+      end
+
+      it { is_expected.to be_empty }
+    end
+  end
+
   describe 'scoping' do
     let(:conditions) { {associated_act: 'Ozzy Osbourne', instrument: 'guitar'} }
 
