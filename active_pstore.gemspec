@@ -26,7 +26,11 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency('activemodel')
+  if Gem::Version.create(RUBY_VERSION) >= Gem::Version.create('2.2.2')
+    s.add_dependency('activemodel', '>= 4.0.0')
+  else
+    s.add_dependency 'activemodel', '>= 4.0.0', '< 5.0.0'
+  end
   s.add_development_dependency('codeclimate-test-reporter')
   s.add_development_dependency('generator_spec')
   s.add_development_dependency('railties')
