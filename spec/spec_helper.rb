@@ -1,8 +1,8 @@
 require 'rspec/expectations'
 require 'rspec/mocks'
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+require 'simplecov'
+SimpleCov.start
 
 require 'active_pstore'
 require 'generator_spec'
