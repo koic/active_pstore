@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 require 'rails/generators/active_pstore/model/model_generator'
 
 describe ActivePstore::Generators::ModelGenerator, type: :generator do

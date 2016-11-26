@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 require 'date'
 
 describe ActivePStore::QueryMethods do

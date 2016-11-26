@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePstore
   module Generators
     class ModelGenerator < Rails::Generators::NamedBase

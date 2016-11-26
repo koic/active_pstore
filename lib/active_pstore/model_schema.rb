@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePStore
   module ModelSchema
     def pstore_key

@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module Rails
   module ActivePStore
     class Railtie < Rails::Railtie

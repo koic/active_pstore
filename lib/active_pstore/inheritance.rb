@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePStore
   module Inheritance
     def new(*args)

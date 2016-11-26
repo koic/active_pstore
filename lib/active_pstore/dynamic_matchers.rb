@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 #
 # Original code is ActiveRecord::DynamicMatcher, thx.
 #

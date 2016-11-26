@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePStore
   class Collection
     include ActivePStore::Calculations

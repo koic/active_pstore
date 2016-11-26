@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 describe ActivePStore::Inheritance do
   include_context 'Rock stars on stage'
 

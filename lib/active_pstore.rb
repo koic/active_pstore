@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePStore; end
 
 require 'active_pstore/attribute_methods'

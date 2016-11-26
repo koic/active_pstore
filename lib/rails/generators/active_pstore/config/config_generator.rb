@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 module ActivePstore
   module Generators
     class ConfigGenerator < Rails::Generators::Base

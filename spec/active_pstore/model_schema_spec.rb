@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 describe ActivePStore::ModelSchema do
   include_context 'Rock stars on stage'
 

@@ -1,3 +1,5 @@
+# -*- frozen-string-literal: true -*-
+
 shared_context 'Rock stars on stage' do
   let(:test_database_dir) { '/tmp/active_pstore_test' }
 
