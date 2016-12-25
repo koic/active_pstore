@@ -9,6 +9,7 @@ rvm:
   - 2.1.10
   - 2.2.6
   - 2.3.3
+  - 2.4.0
   - ruby-head
 gemfile:
   - gemfiles/Gemfile-rails.3.2.x
@@ -28,6 +29,8 @@ matrix:
     - rvm: ruby-head
 script:
   - bundle exec rspec spec
+after_success:
+  - bundle exec codeclimate-test-reporter
 env:
   global:
     secure: NvkwJNJ9L3i0mwtTLDtq0UQVEUfLEA04sXW27s+YS1ZXWn/czrqNXBWgdhlWlLj+jwD/gdH7TbPwoeqMROjlM5U/tFKcmLD4J/OVEaPk3L7UMorQrBe1TU137RC2vXUiMJsnDDDfdVk5IdTbYUH0hzNNyUA73wtRghhvgrBVSnxaPleC5mF9tS48wej/dKONcxYF/PHdWl2ZiaseWvwNEJLj1WvaCRbCGnW8WKVQIlNzZMWsqnQ8m2q2+oyFVEoSdKMXDrkCqBR3Yq4rP2qW5BuZwcTtTOKRFS4SzlBJAaVRN1REoz3PR2Q1Re00QcSoJLV0QTRCzUOe9KZDrte2v+HQZdmz6yaDUQd0hJ2EurLWHDjdk9NTLRhhdlx8Av+Pr4hih6QaZZG1cKid/aTw0wJu64wpWr5J2pYZuN0NphGtwV5y6ozxeBEdCJU1FtK7VJtEgaHMgOWKXk2NxA3+/WjAi4l1/ha9XdCxAoEY/6qz4s1NKiDXKkwjhMycPmCPvaKth/1SF7BC2sXjnuPLtLDejygg+XwzPNcIO9+/IsU2C67MCGhoDSubaTy/Q5MqgiQPXykYHk2a/Y5Q2AyscvYOrtJcwGveeJn8otbEbjck9kJF6BcmM1Aug3gxmml79U1xdyr3kw1sAVHFF/5VkBlnD4fcYMWM7lJXuIJ6Ks8=
