@@ -2,14 +2,6 @@
 
 This library has [Active Record](https://github.com/rails/rails/tree/master/activerecord) like interface. Use [pstore](http://docs.ruby-lang.org/en/2.2.0/PStore.html) to store data.
 
-## FEATURES/PROBLEMS
-
-* Oh so many problems...
-* Transaction NOT supported (caused by implementation)
-* Data Migration NOT supported
-* Performance (caused by implementation)
-* and Not solving the root cause for enterprise...
-
 ## SYNOPSIS
 
 ### specify data store path
@@ -176,6 +168,13 @@ And require it as:
 ```
 require 'active_pstore'
 ```
+
+## Problems
+
+* Transaction NOT supported (caused by implementation)
+* Data Migration NOT supported
+* Performance (caused by implementation)
+* and Not solving the root cause for enterprise...
 
 ## Presentation Document
 
