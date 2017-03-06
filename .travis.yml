@@ -28,6 +28,7 @@ matrix:
       gemfile: gemfiles/Gemfile-rails.5.0.0
   allow_failures:
     - rvm: ruby-head
+    - rvm: jruby-9.1.7.0
 script:
   - bundle exec rspec spec
 after_success:
